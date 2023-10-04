@@ -1,17 +1,14 @@
 import { useState } from 'react'
-import PatientHome from './pages/PatientHome'
-import Navbar from '../src/components/Navbar/Navbar'
-import ChooseAppCategory from './pages/ChooseAppCategory'
-
 import {
   createBrowserRouter,
   RouterProvider,
-  Outlet,
-  Route,
-  Link,
 } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
+import Speciality from './pages/Speciality/Speciality';
+import DoctorList from './pages/DoctorList/DoctorList';
+import Navbar from './components/Navbar/Navbar';
+
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -22,19 +19,19 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/category",
-    element: <ChooseAppCategory />,
+    path: "/speciality",
+    element: <Speciality />,
   },
   {
-    path:"/appointments",
-    element: <Appointments />
+    path:"/doctor-list",
+    element: <DoctorList />
   }
 ]);
-import Appointments from './pages/Appointments'
 
 function App() {
   return (
     <>
+    <Navbar />
      <RouterProvider router={router} />
     </>
   );

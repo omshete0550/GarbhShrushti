@@ -1,0 +1,15 @@
+.DoctorListContainer {
+  padding: 20px 80px;
+}
+.DoctorListSearch {
+  width: 100%;
+  margin-top: 2em;
+}
+.DoctorListSearch input {
+    width: 100%;
+    padding: 15px 20px;
+    outline: none;
+    border-radius: 1em;
+    border: 1px solid #ccc;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
