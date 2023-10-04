@@ -1,0 +1,12 @@
+.NutrientDropDown{
+    display: flex;
+    padding: 20px 40px;
+}
+.NutrientDropDown input {
+    padding: 10px 20px;
+    width: 100%;
+    margin-top: 1em;
+}
+.NutrientsTabsCont{
+    padding: 20px 40px;
+}

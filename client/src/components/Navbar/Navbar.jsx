@@ -23,7 +23,7 @@ const Navbar = () => {
           <i>
             <SiShopware />
           </i>
-          <h2>MediBuddy</h2>
+          <h2>Meternity</h2>
         </div>
         <ul>
           <li>About</li>
