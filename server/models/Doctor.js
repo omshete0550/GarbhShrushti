@@ -42,10 +42,11 @@ const doctorSchema = new mongoose.Schema({
             },
         },
     ],
-    specialist: {
+    speciality: {
         type: String,
-        enum: ['General', 'Dental', 'Neurology', 'Cardiology', 'Orthopedic', 'Pediatric', 'Oncology'],
+        enum: ['General', 'Dental', 'Neurology', 'Cardiology', 'Orthopedic', 'Pediatric', 'Oncology','OBGY','ENT','Ophtalm']
     },
+    
 });
 
 export default mongoose.model("Doctors", doctorSchema);

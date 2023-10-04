@@ -16,14 +16,14 @@ router.put("/:id", updatePatient);
 //DELETE
 router.delete("/:id", deletePatient);
 
+//GET ALL PREV APPOINTMENT OF A USER
+router.post("/applied", getPatientPrevAppointments);
+
 //GET
 router.get("/:id", getPatient);
 
 //GET ALL
 router.get("/", getPatients);
-
-//GET ALL PREV APPOINTMENT OF A USER
-router.get("/applied/:patientname", getPatientPrevAppointments);
 
 //GET ALL REQ APPOINTMENT OF A USER
 router.post("/requested", getPatientReqAppointments);
