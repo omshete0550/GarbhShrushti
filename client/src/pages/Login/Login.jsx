@@ -15,10 +15,17 @@ const Login = () => {
   const [UserName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [dChnage, setDChange] = useState("");
+  const [url,setUrl] = useState("");
 
   const handleLogin = async () => {
     try {
-      const logUrl = (dChnage === "Patient") ? "http://localhost:8800/api/auth/patientLogin" : "http://localhost:8800/api/auth/doctorLogin";
+      // const logUrl = (dChnage == "Patient") ? "http://localhost:8800/api/auth/patientLogin" : "http://localhost:8800/api/auth/doctorLogin";
+      if(dChnage == 'Patient'){
+        setUrl("http://localhost:8800/api/auth/patientLogin");
+      }
+      else{
+        setUrl("http://localhost:8800/api/auth/doctorLogin");
+      }
 
       const data = {
         username: UserName,
@@ -29,7 +36,7 @@ const Login = () => {
       //   navigate("/college-dashboard");
       // }
       const response = await fetch(
-        "http://localhost:8800/api/auth/patientLogin",
+        url,
         {
           method: "POST",
           headers: {
@@ -46,7 +53,13 @@ const Login = () => {
         const data = await response.json();
         localStorage.setItem("userId", data._id);
         console.log(data);
-        navigate("/hhhh");
+        if(dChnage == 'Patient'){
+          navigate("/hhhh");
+        }
+        else{
+          // navigate("/");
+        }
+       
       } else {
         console.log("Login Failed");
       }
@@ -105,8 +118,8 @@ const Login = () => {
                 required={true}
               >
                 <option value="">Select User</option>
-                <option value="User">Patient</option>
-                <option value="Institution">Doctor</option>
+                <option value="Patient">Patient</option>
+                <option value="Doctor">Doctor</option>
               </select>
             </div>
             <div className="input-container">
