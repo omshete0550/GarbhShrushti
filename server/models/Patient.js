@@ -30,6 +30,9 @@ const patientSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    email:{
+        type: String
+    },
     deliveryDone: {
         type: Boolean,
         default: false,

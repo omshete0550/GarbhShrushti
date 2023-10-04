@@ -5,8 +5,6 @@ import MenuItem from "@mui/material/MenuItem";
 import {BsChatLeftTextFill} from "react-icons/bs"
 import {IoMdNotifications} from "react-icons/io"
 import { SiShopware } from "react-icons/si";
-import { BsChatLeftTextFill } from "react-icons/bs";
-import { IoMdNotifications } from "react-icons/io";
 import "./Navbar.css";
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
