@@ -28,15 +28,28 @@ const router = createBrowserRouter([
   },
   {
     path: "/speciality",
-    element: <Speciality />,
+    element: 
+    <>
+      <Navbar/>
+      <Speciality />
+    </>
   },
   {
     path: "/emergencyChoose",
-    element: <EmergencyOption />,
+    element: 
+    <>
+      <Navbar/>
+      <EmergencyOption />
+    </>
   },
   {
     path:"/appointments",
-    element: <BookAppt />
+    element: 
+    <>
+    <Navbar/>
+      <BookAppt />
+    </>
+    
   },
   {
     path: "/home",
@@ -75,7 +88,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/nutrient",
-    element: <Nutrient />,
+    element: 
+    <>
+    <Navbar/>
+    <Nutrient />,
+    </>
   },
 ]);
 

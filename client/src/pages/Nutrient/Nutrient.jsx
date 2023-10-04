@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Nutrient.css";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
@@ -11,16 +11,29 @@ const options = [
   "Monogenic Diabetes",
   "Secondary Diabetes",
 ];
-const bloodP = ["Systolic pressure", "Diastolic pressure"];
+const bloodP = ["Primary (Essential) Hypertension", "Secondary Hypertension"];
 const Cholesterol = [
   "Low-Density Lipoprotein (LDL)",
   "High-Density Lipoprotein (HDL)",
+  "High Total Cholesterol (Hypercholesterolemia)",
+  "High Triglycerides (Hypertriglyceridemia)",
+  "Dyslipidemia"
 ];
 const defaultOption = options[0];
 const blooddefaultOption = bloodP[0];
 const CholesteroldefaultOption = Cholesterol[0];
 
 const Nutrient = () => {
+  const [selectedDiabetesType, setSelectedDiabetesType] = useState("def");
+  const [showDietPlan, setShowDietPlan] = useState(false);
+  const handleDiabetesTypeChange = (selectedOption) => {
+    setSelectedDiabetesType(selectedOption.value);
+    setShowDietPlan(false);
+    console.log(selectedDiabetesType);
+  };
+  const displayDiet = () => {
+    setShowDietPlan(true);
+  };
   return (
     <>
       <div className="NutrientCont">
@@ -46,7 +59,8 @@ const Nutrient = () => {
               <div style={{ marginTop: "1em" }}>
                 <Dropdown
                   options={options}
-                  value={defaultOption}
+                  defaultValue={defaultOption}
+                  onChange={handleDiabetesTypeChange}
                   placeholder="Select an option"
                 />
               </div>
@@ -70,7 +84,8 @@ const Nutrient = () => {
               <div style={{ marginTop: "1em" }}>
                 <Dropdown
                   options={Cholesterol}
-                  value={CholesteroldefaultOption}
+                  defaultOption={CholesteroldefaultOption}
+                  
                   placeholder="Select an option"
                 />
               </div>
@@ -79,12 +94,17 @@ const Nutrient = () => {
         </div>
 
         <div className="GptNutrient">
-            <button>Give Diet Plan</button>
+            <button onClick={displayDiet}>Give Diet Plan</button>
         </div>
 
-        <div className="NutrientsTabsCont">
-            <NutrientTabs />
-        </div>
+        {/* <div className="NutrientsTabsCont">
+            <NutrientTabs c={1}/>
+        </div> */}
+        {showDietPlan && (
+          <div className="NutrientsTabsCont">
+            <NutrientTabs diabetesType={selectedDiabetesType} c={1} />
+          </div>
+        )}
       </div>
 
     </>
