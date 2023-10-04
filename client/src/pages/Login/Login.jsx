@@ -52,9 +52,10 @@ const Login = () => {
         // navigate("/dashboard");
         const data = await response.json();
         localStorage.setItem("userId", data._id);
+        localStorage.setItem("userName",data.username)
         console.log(data);
         if(dChnage == 'Patient'){
-          navigate("/hhhh");
+          navigate("/homepage");
         }
         else{
           

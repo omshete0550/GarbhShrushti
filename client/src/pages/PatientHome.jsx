@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {LuSyringe} from "react-icons/lu"
 import {FaUserDoctor} from "react-icons/fa6"
 import {AiFillMedicineBox} from "react-icons/ai"
@@ -7,7 +7,28 @@ import {GiTalk} from "react-icons/gi"
 import {BsBookmarkCheckFill} from "react-icons/bs"
 import "./PatientHome.css";
 import ApptTable from '../components/Navbar/PatientHome/ApptTable'
+
 const PatientHome = () => {
+    const [appointments,setAppointments] = useState([]);
+
+    useEffect(()=>{
+        function getAppointments(){
+            const patientName = localStorage.getItem("userName");   
+        const resp = fetch("http://localhost:8800/api/patients/applied",{
+            method:'POST',
+            headers:{
+                'Content-Type':"application/json"
+            },
+            body:JSON.stringify({
+                username:patientName
+              })
+        }).then((res)=>res.json()).then((data)=>{
+            console.log(data.appointments[0].doctorId);
+            setAppointments(data)
+        })
+        };
+        getAppointments();
+    },[])
     const tasksData = [
   {
     id: 1,
@@ -138,7 +159,7 @@ function handleAppointment(){
 
         <div className="UpcomingTable">
         <h2>Upcoming Appointments</h2>
-            <ApptTable/>
+            <ApptTable data={appointments}/>
         </div>
         
         

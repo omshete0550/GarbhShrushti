@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     element: <BookAppt />
   },
   {
-    path:"/hhhh",
+    path:"/homepage",
     element: <> <Navbar/>
     <PatientHome />
     {/* <Chat /> */}
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
     element: <DoctorList />
   },
   {
-    path:"/book-appointment",
+    path:"/book-appointment/:doctorId",
     element: <BookAppt />
   }
 ]);

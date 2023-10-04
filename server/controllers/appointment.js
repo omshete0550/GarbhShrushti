@@ -50,3 +50,22 @@ export const getAppointments = async (req, res, next) => {
         next(err);
     }
 };
+
+export const getAppointmentsbyUser = async (req, res, next) => {
+    const {patientId,doctorId,side} = req.body;
+    try {
+        if(side === "patient"){
+            const allAppointments = await Appointment.find({
+                patientId: patientId
+              });
+        }
+        else{
+            const allAppointments = await Appointment.find({
+                patientId: doctorId
+              });
+        }
+        res.status(200).json(allAppointments)
+    } catch (err) {
+        next(err);
+    }
+};
