@@ -20,6 +20,9 @@ const PatientHome = () => {
     description: 'Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....',
   },
 ];
+function handleAppointment(){
+    navigate('/speciality')
+}
   return (
     <div>
         <div className="PatientPane">
@@ -90,13 +93,13 @@ const PatientHome = () => {
                     </a>
                     </div>
 
-                    <div className="ag-courses_item">
-                    <a href="#" className="ag-courses-item_link">
+                    <div onClick={handleAppointment} className="ag-courses_item">
+                    <a href="http://localhost:5173/speciality" className="ag-courses-item_link">
                         <div className="ag-courses-item_bg"></div>
 
                         <div className="ag-courses-item_title">
                         <BsBookmarkCheckFill size={60}/><br/><br/>
-                        Book Appt
+                        Book Appointment
                         </div>
                     </a>
                     </div>
