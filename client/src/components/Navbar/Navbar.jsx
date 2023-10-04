@@ -2,11 +2,10 @@ import React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import {BsChatLeftTextFill} from "react-icons/bs"
-import {IoMdNotifications} from "react-icons/io"
-import { SiShopware } from "react-icons/si";
+import { Link } from "@mui/material";
 // import { BsChatLeftTextFill } from "react-icons/bs";
 // import { IoMdNotifications } from "react-icons/io";
+import { SiShopware } from "react-icons/si";
 import "./Navbar.css";
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -25,12 +24,12 @@ const Navbar = () => {
           <i>
             <SiShopware />
           </i>
-          <h2>MediBuddy</h2>
+          <h2>Meternity</h2>
         </div>
         <ul>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Login</li>
+          <li><Link to="/home" style={{ textDecoration: 'none' }}>Home</Link></li>
+          <li><Link to="/home" style={{ textDecoration: 'none' }}>About</Link></li>
+          <li><Link to="/login" style={{ textDecoration: 'none' }}>Login</Link></li>
           <li>
             <Button
               id="basic-button"

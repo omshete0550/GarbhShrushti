@@ -1,0 +1,9 @@
+.trimesterContainer{
+    padding: 20px 80px;
+}
+.trimesterContainer h1{
+    color: #015ba9;
+    font-size: 1.8em;
+    position:absolute;
+    top: 5em;;
+}

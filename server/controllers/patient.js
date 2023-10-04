@@ -39,7 +39,7 @@ export const getPatients = async (req, res, next) => {
 }
 export const getPatientPrevAppointments = async (req, res) => {
     try {
-        const patient = await Patient.findOne({ patientname: req.params.patientname });
+        const patient = await Patient.findOne({ username: req.params.patientname });
         let appointments = ""
         appointments = await Appointments.find({ patientId: patient._id });
         res.status(200).json(appointments);

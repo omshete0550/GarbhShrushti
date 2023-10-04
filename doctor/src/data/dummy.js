@@ -540,6 +540,11 @@ export const links = [
         titleName: 'Past Appointments',
         icon: <IoMdCalendar />,
       },
+      {
+        name: 'SinglePatient',
+        titleName: 'Single Patient',
+        icon: <IoMdCalendar />,
+      },
     ],
   },
   {

@@ -20,7 +20,7 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       // const logUrl = (dChnage == "Patient") ? "http://localhost:8800/api/auth/patientLogin" : "http://localhost:8800/api/auth/doctorLogin";
-      if(dChnage == 'Patient'){
+      if(dChnage === 'Patient'){
         setUrl("http://localhost:8800/api/auth/patientLogin");
       }
       else{
@@ -57,7 +57,7 @@ const Login = () => {
           navigate("/hhhh");
         }
         else{
-          // navigate("/");
+          
         }
        
       } else {

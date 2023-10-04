@@ -78,3 +78,48 @@ export const doctData = [
         "consultationFees": "₹500 /-"
     },
 ]
+
+export const VaccineCenter = [
+    {
+        id: 1,
+        HospImg : 'https://arcmaxarchitect.com/sites/default/files/best_architect_for_multi_specialty_hospital_design.jpg',
+        HospName: 'Jupiter Hospital',
+        HospLoc: 'Bandra, Mumbai',
+        HospDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun',
+    },
+    {
+        id: 2,
+        HospImg : 'https://arcmaxarchitect.com/sites/default/files/best_architect_for_multi_specialty_hospital_design.jpg',
+        HospName: 'Jupiter Hospital',
+        HospLoc: 'Bandra, Mumbai',
+        HospDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun',
+    },
+    {
+        id: 3,
+        HospImg : 'https://arcmaxarchitect.com/sites/default/files/best_architect_for_multi_specialty_hospital_design.jpg',
+        HospName: 'Jupiter Hospital',
+        HospLoc: 'Bandra, Mumbai',
+        HospDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun',
+    },
+    {
+        id: 4,
+        HospImg : 'https://arcmaxarchitect.com/sites/default/files/best_architect_for_multi_specialty_hospital_design.jpg',
+        HospName: 'Jupiter Hospital',
+        HospLoc: 'Bandra, Mumbai',
+        HospDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun',
+    },
+    {
+        id: 1,
+        HospImg : 'https://arcmaxarchitect.com/sites/default/files/best_architect_for_multi_specialty_hospital_design.jpg',
+        HospName: 'Jupiter Hospital',
+        HospLoc: 'Bandra, Mumbai',
+        HospDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun',
+    },
+    {
+        id: 2,
+        HospImg : 'https://arcmaxarchitect.com/sites/default/files/best_architect_for_multi_specialty_hospital_design.jpg',
+        HospName: 'Jupiter Hospital',
+        HospLoc: 'Bandra, Mumbai',
+        HospDesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun',
+    },
+]

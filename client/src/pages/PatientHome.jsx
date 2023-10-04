@@ -6,7 +6,7 @@ import {MdVaccines} from "react-icons/md"
 import {GiTalk} from "react-icons/gi"
 import {BsBookmarkCheckFill} from "react-icons/bs"
 import "./PatientHome.css";
-import ApptTable from '../components/Navbar/PatientHome/ApptTable'
+import ApptTable from "../components/Navbar/PatientHome/ApptTable";
 const PatientHome = () => {
     const [tasksData, setTasksData] = useState([
         {
@@ -27,126 +27,129 @@ const PatientHome = () => {
         setTasksData(updatedTasks);
       };
   return (
-    <div>
-        <div className="PatientPane">
-            <div className="ag-format-container">
-                <div className="ag-courses_box">
-                    <div className="ag-courses_item">
-                    <a href="#" className="ag-courses-item_link">
-                        <div className="ag-courses-item_bg"></div>
+    <div className="PatientHomeContainer">
+      {/* <h1>Categories</h1> */}
+      <div className="PatientPane">
+        <div className="ag-format-container">
+          <div className="ag-courses_box">
+            <div className="ag-courses_item">
+              <a href="#" className="ag-courses-item_link">
+                <div className="ag-courses-item_bg"></div>
 
-                        <div className="ag-courses-item_title">
-                        <LuSyringe size={60}/><br/><br/>
-                        Labs / Tests
-                        </div>
-
-                        
-                    </a>
-                    </div>
-
-                    <div className="ag-courses_item">
-                    <a href="#" className="ag-courses-item_link">
-                        <div className="ag-courses-item_bg"></div>
-
-                        <div className="ag-courses-item_title">
-                        <FaUserDoctor size={60}/><br/><br/>
-                        Surgery
-                        </div>
-
-                        
-                    </a>
-                    </div>
-
-                    <div className="ag-courses_item">
-                    <a href="#" className="ag-courses-item_link">
-                        <div className="ag-courses-item_bg"></div>
-
-                        <div className="ag-courses-item_title">
-                        <AiFillMedicineBox size={60}/><br/><br/>
-                        Medicine
-                        </div>
-
-                        
-                    </a>
-                    </div>
-
-                    <div className="ag-courses_item">
-                    <a href="#" className="ag-courses-item_link">
-                        <div className="ag-courses-item_bg"></div>
-
-                        <div className="ag-courses-item_title">
-                        <MdVaccines size={60}/><br/><br/>
-                        Vaccinations
-                        </div>
-
-                       
-                    </a>
-                    </div>
-
-                    <div className="ag-courses_item">
-                    <a href="#" className="ag-courses-item_link">
-                        <div className="ag-courses-item_bg"></div>
-
-                        <div className="ag-courses-item_title">
-                        <GiTalk size={60}/><br/><br/>
-                        Emergency Consult
-                        </div>
-
-                
-                    </a>
-                    </div>
-
-                    <div className="ag-courses_item">
-                    <a href="#" className="ag-courses-item_link">
-                        <div className="ag-courses-item_bg"></div>
-
-                        <div className="ag-courses-item_title">
-                        <BsBookmarkCheckFill size={60}/><br/><br/>
-                        Book Appt
-                        </div>
-                    </a>
-                    </div>
+                <div className="ag-courses-item_title">
+                  <LuSyringe size={60} />
+                  <br />
+                  <br />
+                  Labs / Tests
                 </div>
-            </div> 
-            <div className="tasksPane">
-               
-                <div className="listTasks">
-                    <div className="headingList">
-                        <div className="dateList">
-                            <h2> TASKS</h2>
-                        </div>
-                        <div className="timeList">
-                            <h2>14:50</h2>
-                        </div>
-                    </div>
-                    <div className="tasks">
-                        <ul>
-                        {tasksData.map((task) => (
-                            <li key={task.id}>
-                                <div className="content">
-                                <h3>{task.title}</h3>
-                                <p>{task.description}</p>
-                                </div>
-                                <div className="accessbtns">
-                                {/* <button className='cross'> X </button> */}
-                                <button className='correct' onClick={() => handleRemoveTask(task.id)}> ✓ </button>
-                                </div>
-                            </li>
-                        ))}
-                        </ul>
-                    </div>
-                </div>
+              </a>
             </div>
-        </div> 
 
-        <div className="UpcomingTable">
-        <h2>Upcoming Appointments</h2>
-            <ApptTable/>
+            <div className="ag-courses_item">
+              <a href="#" className="ag-courses-item_link">
+                <div className="ag-courses-item_bg"></div>
+
+                <div className="ag-courses-item_title">
+                  <FaUserDoctor size={60} />
+                  <br />
+                  <br />
+                  Surgery
+                </div>
+              </a>
+            </div>
+
+            <div className="ag-courses_item">
+              <a href="#" className="ag-courses-item_link">
+                <div className="ag-courses-item_bg"></div>
+
+                <div className="ag-courses-item_title">
+                  <AiFillMedicineBox size={60} />
+                  <br />
+                  <br />
+                  Medicine
+                </div>
+              </a>
+            </div>
+
+            <div className="ag-courses_item">
+              <a href="#" className="ag-courses-item_link">
+                <div className="ag-courses-item_bg"></div>
+
+                <div className="ag-courses-item_title">
+                  <MdVaccines size={60} />
+                  <br />
+                  <br />
+                  Vaccinations
+                </div>
+              </a>
+            </div>
+
+            <div className="ag-courses_item">
+              <a href="#" className="ag-courses-item_link">
+                <div className="ag-courses-item_bg"></div>
+
+                <div className="ag-courses-item_title">
+                  <GiTalk size={60} />
+                  <br />
+                  <br />
+                  Emergency Consult
+                </div>
+              </a>
+            </div>
+
+            <div onClick={handleAppointment} className="ag-courses_item">
+              <a
+                href="http://localhost:5173/speciality"
+                className="ag-courses-item_link"
+              >
+                <div className="ag-courses-item_bg"></div>
+
+                <div className="ag-courses-item_title">
+                  <BsBookmarkCheckFill size={60} />
+                  <br />
+                  <br />
+                  Book Appointment
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
-        
-        
-    </div>
-  )
-}
+        <div className="tasksPane">
+          <div className="listTasks">
+            <div className="headingList">
+              <div className="dateList">
+                <h2> TASKS</h2>
+              </div>
+              <div className="timeList">
+                <h2>12:30 PM</h2>
+              </div>
+            </div>
+            <div className="tasks">
+              <ul>
+                {tasksData.map((task) => (
+                  <li key={task.id}>
+                    <div className="content">
+                      <h3>{task.title}</h3>
+                      <p>{task.description}</p>
+                    </div>
+                    <div className="accessbtns">
+                      {/* <button className='cross'> X </button> */}
+                      <button className="correct" onClick={() => handleRemoveTask(task.id)}> ✓ </button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-export default PatientHome
+      <div className="UpcomingTable">
+        <h2>Upcoming Appointments</h2>
+        <ApptTable />
+      </div>
+    </div>
+  );
+};
+
+export default PatientHome;
