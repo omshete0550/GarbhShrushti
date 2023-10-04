@@ -4,6 +4,9 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import {BsChatLeftTextFill} from "react-icons/bs"
 import {IoMdNotifications} from "react-icons/io"
+import { SiShopware } from "react-icons/si";
+import { BsChatLeftTextFill } from "react-icons/bs";
+import { IoMdNotifications } from "react-icons/io";
 import "./Navbar.css";
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -19,20 +22,28 @@ const Navbar = () => {
     <div>
       <div className="navbarContainer">
         <div className="heading">
-          <h2>Maternal Pro</h2>
+          <i>
+            <SiShopware />
+          </i>
+          <h2>MediBuddy</h2>
         </div>
         <ul>
           <li>About</li>
+          <li>Contact</li>
           <li>Login</li>
           <li>
             <Button
               id="basic-button"
+              className="basic-button"
               aria-controls={open ? "basic-menu" : undefined}
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
             >
-              <IoMdNotifications size={30}/>
+              <i>
+                {" "}
+                <IoMdNotifications />
+              </i>
             </Button>
             <Menu
               id="basic-menu"
@@ -43,12 +54,26 @@ const Navbar = () => {
                 "aria-labelledby": "basic-button",
               }}
             >
-              <MenuItem onClick={handleClose}>Welcome to Stage 2 <p style={{"padding":"0 15px", "color":"#acacac"}}>2h</p></MenuItem>
-              <MenuItem onClick={handleClose}>Time for Exercise <p style={{"padding":"0 15px", "color":"#acacac"}}>4h</p></MenuItem>
-              <MenuItem onClick={handleClose}>Time for Nurtient Strike <p style={{"padding":"0 15px", "color":"#acacac"}}>2d</p></MenuItem>
+              <MenuItem onClick={handleClose}>
+                Welcome to Stage 2{" "}
+                <p style={{ padding: "0 15px", color: "#acacac" }}>2h</p>
+              </MenuItem>
+              <MenuItem onClick={handleClose}>
+                Time for Exercise{" "}
+                <p style={{ padding: "0 15px", color: "#acacac" }}>4h</p>
+              </MenuItem>
+              <MenuItem onClick={handleClose}>
+                Time for Nurtient Strike{" "}
+                <p style={{ padding: "0 15px", color: "#acacac" }}>2d</p>
+              </MenuItem>
             </Menu>
           </li>
-          <li style={{"color":"#1977cc"}}><BsChatLeftTextFill size={25}/></li>
+          <li style={{ color: "#1977cc" }}>
+            <i>
+              {" "}
+              <BsChatLeftTextFill />
+            </i>
+          </li>
         </ul>
       </div>
     </div>

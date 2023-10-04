@@ -7,12 +7,13 @@ import Chat from './pages/ChatInterface/chat'
 import {
   createBrowserRouter,
   RouterProvider,
-  Outlet,
-  Route,
-  Link,
 } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
+import Speciality from './pages/Speciality/Speciality';
+import DoctorList from './pages/DoctorList/DoctorList';
+import Navbar from './components/Navbar/Navbar';
+import BookAppt from './pages/bookAppt/bookAppt';
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -23,8 +24,8 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/category",
-    element: <ChooseAppCategory />,
+    path: "/speciality",
+    element: <Speciality />,
   },
   {
     path:"/appointments",
@@ -34,14 +35,23 @@ const router = createBrowserRouter([
     path:"/hhhh",
     element: <> <Navbar/>
     <PatientHome />
-    {/* <Chat /> */}</>
+    {/* <Chat /> */}
+    </>
+  },
+  {
+        path:"/doctor-list",
+    element: <DoctorList />
+  },
+  {
+    path:"/book-appointment",
+    element: <BookAppt />
   }
 ]);
-import Appointments from './pages/Appointments'
 
 function App() {
   return (
     <>
+    <Navbar />
      <RouterProvider router={router} />
     </>
   );
