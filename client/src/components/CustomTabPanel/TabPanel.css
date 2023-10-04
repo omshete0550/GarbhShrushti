@@ -184,12 +184,12 @@ a:hover {
   .postcard:hover .postcard__img {
     transform: scale(1.1);
   }
-  .postcard:nth-child(2n + 1) {
+  /* .postcard:nth-child(2n + 1) {
     flex-direction: row;
   }
   .postcard:nth-child(2n + 0) {
     flex-direction: row-reverse;
-  }
+  } */
   .postcard:nth-child(2n + 1) .postcard__text::before {
     left: -12px !important;
     transform: rotate(4deg);
