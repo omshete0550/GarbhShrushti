@@ -1,22 +1,48 @@
-import React from 'react';
-import { BsCurrencyDollar } from 'react-icons/bs';
-import { GoPrimitiveDot } from 'react-icons/go';
-import { IoIosMore } from 'react-icons/io';
-import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
-
-import { Stacked, Pie, Button, LineChart, SparkLine } from '../components';
-import { earningData, medicalproBranding, recentTransactions, weeklyStats, dropdownData, SparklineAreaData, ecomPieChartData } from '../data/dummy';
-import { useStateContext } from '../contexts/ContextProvider';
-import product9 from '../data/product9.jpg';
+import React from "react";
+import { BsCurrencyDollar } from "react-icons/bs";
+import { GoPrimitiveDot } from "react-icons/go";
+import { IoIosMore } from "react-icons/io";
+import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
+import ButtonMui from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { Stacked, Pie, Button, LineChart, SparkLine } from "../components";
+import {
+  earningData,
+  recentTransactions,
+  weeklyStats,
+  dropdownData,
+  SparklineAreaData,
+  ecomPieChartData,
+} from "../data/dummy";
+import { useStateContext } from "../contexts/ContextProvider";
+import product9 from "../data/product9.jpg";
 
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
-    <DropDownListComponent id="time" fields={{ text: 'Time', value: 'Id' }} style={{ border: 'none', color: (currentMode === 'Dark') && 'white' }} value="1" dataSource={dropdownData} popupHeight="220px" popupWidth="120px" />
+    <DropDownListComponent
+      id="time"
+      fields={{ text: "Time", value: "Id" }}
+      style={{ border: "none", color: currentMode === "Dark" && "white" }}
+      value="1"
+      dataSource={dropdownData}
+      popupHeight="220px"
+      popupWidth="120px"
+    />
   </div>
 );
 
 const Ecommerce = () => {
   const { currentColor, currentMode } = useStateContext();
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <div className="mt-24">
@@ -24,8 +50,8 @@ const Ecommerce = () => {
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
           <div className="flex justify-between items-center">
             <div>
-              <p className="font-bold text-gray-400">Earnings</p>
-              <p className="text-2xl">$63,448.78</p>
+              <p className="font-bold text-gray-400">Total Earnings</p>
+              <p className="text-2xl">₹63,448.78</p>
             </div>
             <button
               type="button"
@@ -35,18 +61,21 @@ const Ecommerce = () => {
               <BsCurrencyDollar />
             </button>
           </div>
-          <div className="mt-6">
+          {/* <div className="mt-6">
             <Button
               color="white"
               bgColor={currentColor}
               text="Download"
               borderRadius="10px"
             />
-          </div>
+          </div> */}
         </div>
         <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
           {earningData.map((item) => (
-            <div key={item.title} className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl ">
+            <div
+              key={item.title}
+              className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl "
+            >
               <button
                 type="button"
                 style={{ color: item.iconColor, backgroundColor: item.iconBg }}
@@ -103,7 +132,15 @@ const Ecommerce = () => {
               </div>
 
               <div className="mt-5">
-                <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} />
+                <SparkLine
+                  currentColor={currentColor}
+                  id="line-sparkLine"
+                  type="Line"
+                  height="80px"
+                  width="250px"
+                  data={SparklineAreaData}
+                  color={currentColor}
+                />
               </div>
               <div className="mt-10">
                 <Button
@@ -128,13 +165,23 @@ const Ecommerce = () => {
               <p className="font-semibold text-white text-2xl">Earnings</p>
 
               <div>
-                <p className="text-2xl text-white font-semibold mt-8">$63,448.78</p>
+                <p className="text-2xl text-white font-semibold mt-8">
+                  $63,448.78
+                </p>
                 <p className="text-gray-200">Monthly revenue</p>
               </div>
             </div>
 
             <div className="mt-4">
-              <SparkLine currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
+              <SparkLine
+                currentColor={currentColor}
+                id="column-sparkLine"
+                height="100px"
+                type="Column"
+                data={SparklineAreaData}
+                width="320"
+                color="rgb(242, 252, 253)"
+              />
             </div>
           </div>
 
@@ -145,7 +192,12 @@ const Ecommerce = () => {
             </div>
 
             <div className="w-40">
-              <Pie id="pie-chart" data={ecomPieChartData} legendVisiblity={false} height="160px" />
+              <Pie
+                id="pie-chart"
+                data={ecomPieChartData}
+                legendVisiblity={false}
+                height="160px"
+              />
             </div>
           </div>
         </div>
@@ -154,7 +206,7 @@ const Ecommerce = () => {
       <div className="flex gap-10 m-4 flex-wrap justify-center">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
           <div className="flex justify-between items-center gap-2">
-            <p className="text-xl font-semibold">Recent Transactions</p>
+            <p className="text-xl font-semibold">Recent Appointments</p>
             <DropDown currentMode={currentMode} />
           </div>
           <div className="mt-10 w-72 md:w-400">
@@ -180,7 +232,7 @@ const Ecommerce = () => {
               </div>
             ))}
           </div>
-          <div className="flex justify-between items-center mt-5 border-t-1 border-color">
+          {/* <div className="flex justify-between items-center mt-5 border-t-1 border-color">
             <div className="mt-3">
               <Button
                 color="white"
@@ -191,7 +243,7 @@ const Ecommerce = () => {
             </div>
 
             <p className="text-gray-400 text-sm">36 Recent Transactions</p>
-          </div>
+          </div> */}
         </div>
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760">
           <div className="flex justify-between items-center gap-2 mb-10">
@@ -205,7 +257,7 @@ const Ecommerce = () => {
       </div>
 
       <div className="flex flex-wrap justify-center">
-        <div className="md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+        {/* <div className="md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
             <p className="text-xl font-semibold">Weekly Stats</p>
             <button type="button" className="text-xl font-semibold text-gray-500">
@@ -293,26 +345,142 @@ const Ecommerce = () => {
 
             <p className="text-gray-400 text-sm">36 Recent Transactions</p>
           </div>
+        </div> */}
+        <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+          <div className="flex justify-between">
+            <p className="text-xl font-semibold">Blogs</p>
+            <div className="text-xl font-semibold text-gray-500">
+              <ButtonMui
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+              >
+                <IoIosMore />
+              </ButtonMui>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                <MenuItem onClick={handleClose}>Delete</MenuItem>
+              </Menu>
+            </div>
+          </div>
+          <div className="mt-10">
+            <img className="md:w-96 h-50 " src={product9} alt="" />
+            <div className="mt-8">
+              <p className="font-semibold text-lg">
+                Understanding the Benefits of Regular Exercise
+              </p>
+              <p className="text-gray-400 ">By Dr. Rahul Sharma</p>
+              <p className="mt-8 text-sm text-gray-400">
+                In this blog post, Dr. Sharma explains the numerous health
+                benefits of incorporating regular exercise into your daily
+                routine.
+              </p>
+              <div className="mt-3">
+                <Button
+                  color="white"
+                  bgColor={currentColor}
+                  text="Read More"
+                  borderRadius="10px"
+                />
+              </div>
+            </div>
+          </div>
         </div>
         <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
-            <p className="text-xl font-semibold">Daily Activities</p>
-            <button type="button" className="text-xl font-semibold text-gray-500">
-              <IoIosMore />
-            </button>
+            <p className="text-xl font-semibold">Blogs</p>
+            <div className="text-xl font-semibold text-gray-500">
+              <ButtonMui
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+              >
+                <IoIosMore />
+              </ButtonMui>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                <MenuItem onClick={handleClose}>Delete</MenuItem>
+              </Menu>
+            </div>
           </div>
           <div className="mt-10">
-            <img
-              className="md:w-96 h-50 "
-              src={product9}
-              alt=""
-            />
+            <img className="md:w-96 h-50 " src={product9} alt="" />
             <div className="mt-8">
-              <p className="font-semibold text-lg">React 18 coming soon!</p>
-              <p className="text-gray-400 ">By Johnathan Doe</p>
+              <p className="font-semibold text-lg">
+                The Importance of a Balanced Diet for Heart Health
+              </p>
+              <p className="text-gray-400 ">By Dr. Sarah Khan</p>
               <p className="mt-8 text-sm text-gray-400">
-                This will be the small description for the news you have shown
-                here. There could be some great info.
+                Dr. Sarah Khan discusses the significance of maintaining a
+                balanced diet to promote heart health and reduce the risk of
+                cardiovascular diseases.
+              </p>
+              <div className="mt-3">
+                <Button
+                  color="white"
+                  bgColor={currentColor}
+                  text="Read More"
+                  borderRadius="10px"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+          <div className="flex justify-between">
+            <p className="text-xl font-semibold">Blogs</p>
+            <div className="text-xl font-semibold text-gray-500">
+              <ButtonMui
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+              >
+                <IoIosMore />
+              </ButtonMui>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                <MenuItem onClick={handleClose}>Delete</MenuItem>
+              </Menu>
+            </div>
+          </div>
+          <div className="mt-10">
+            <img className="md:w-96 h-50 " src={product9} alt="" />
+            <div className="mt-8">
+              <p className="font-semibold text-lg">
+                Mental Health Awareness: Strategies for Coping with Stress
+              </p>
+              <p className="text-gray-400 ">By Dr. Om Pandey</p>
+              <p className="mt-8 text-sm text-gray-400">
+                In this insightful blog post, Dr. Om Pandey shares practical
+                strategies for managing and coping with stress, promoting better
+                mental health.
               </p>
               <div className="mt-3">
                 <Button
