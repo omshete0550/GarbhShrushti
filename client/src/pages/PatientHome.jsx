@@ -116,17 +116,17 @@ const PatientHome = () => {
                     <div className="tasks">
                         <ul>
                         {tasksData.map((task) => (
-          <li key={task.id}>
-            <div className="content">
-              <h3>{task.title}</h3>
-              <p>{task.description}</p>
-            </div>
-            <div className="accessbtns">
-              {/* <button className='cross'> X </button> */}
-              <button className='correct'> ✓ </button>
-            </div>
-          </li>
-        ))}
+                            <li key={task.id}>
+                                <div className="content">
+                                <h3>{task.title}</h3>
+                                <p>{task.description}</p>
+                                </div>
+                                <div className="accessbtns">
+                                {/* <button className='cross'> X </button> */}
+                                <button className='correct'> ✓ </button>
+                                </div>
+                            </li>
+                        ))}
                         </ul>
                     </div>
                 </div>
