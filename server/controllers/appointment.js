@@ -1,5 +1,15 @@
 import Appointment from "../models/Appointment.js";
 
+export const createAppointment = async (req, res, next) => {
+    const newAppointment = new Appointment(req.body)
+    try {
+        const savedAppointment = await newAppointment.save()
+        res.status(201).json(savedAppointment)
+    } catch (error) {
+        next(error)
+    }
+}
+
 export const updateAppointment = async (req, res, next) => {
     try {
         const updatedAppointment = await Appointment.findByIdAndUpdate(
