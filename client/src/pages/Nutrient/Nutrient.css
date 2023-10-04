@@ -10,3 +10,17 @@
 .NutrientsTabsCont{
     padding: 20px 40px;
 }
+.GptNutrient {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.GptNutrient button{
+    padding: 10px 20px;
+    width: 20%;
+    font-weight: 600;
+    border-radius: 0.5em;
+    background-color: #1977cc;
+    color: #fff;
+    border: none;
+}

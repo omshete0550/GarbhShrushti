@@ -78,6 +78,10 @@ const Nutrient = () => {
           </div>
         </div>
 
+        <div className="GptNutrient">
+            <button>Give Diet Plan</button>
+        </div>
+
         <div className="NutrientsTabsCont">
             <NutrientTabs />
         </div>
