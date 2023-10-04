@@ -1,0 +1,15 @@
+/* Importing fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&family=Work+Sans:wght@300;500&display=swap');
+
+.navbarContainer{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+}
+.navbarContainer h2
+.navbarContainer ul{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+}

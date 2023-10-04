@@ -1,4 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react'
+import PatientHome from './pages/PatientHome'
+import Navbar from '../src/components/Navbar/Navbar'
+import ChooseAppCategory from './pages/ChooseAppCategory'
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -17,14 +21,21 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+  {
+    path: "/category",
+    element: <ChooseAppCategory />,
+  },
+  {
+    path:"/appointments",
+    element: <Appointments />
+  }
 ]);
+import Appointments from './pages/Appointments'
 
 function App() {
   return (
     <>
-      <div className="app">
-        <RouterProvider router={router} />
-      </div>
+     <RouterProvider router={router} />
     </>
   );
 }
