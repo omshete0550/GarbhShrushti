@@ -2,6 +2,7 @@ import { useState } from 'react'
 import PatientHome from './pages/PatientHome'
 import Navbar from '../src/components/Navbar/Navbar'
 import ChooseAppCategory from './pages/ChooseAppCategory'
+import Chat from './pages/ChatInterface/chat'
 
 import {
   createBrowserRouter,
@@ -28,6 +29,12 @@ const router = createBrowserRouter([
   {
     path:"/appointments",
     element: <Appointments />
+  },
+  {
+    path:"/hhhh",
+    element: <> <Navbar/>
+    <PatientHome />
+    {/* <Chat /> */}</>
   }
 ]);
 import Appointments from './pages/Appointments'
