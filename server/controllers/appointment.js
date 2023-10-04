@@ -1,4 +1,4 @@
-import Appointment from "../models/Appointment";
+import Appointment from "../models/Appointment.js";
 
 export const updateAppointment = async (req, res, next) => {
     try {

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const appointmentSchema = new mongoose.Schema({
     doctorId: {
@@ -28,6 +28,12 @@ const appointmentSchema = new mongoose.Schema({
         enum: ['Requested', 'Scheduled', 'Completed', 'Cancelled'],
         default: 'Requested',
     },
+    tasks: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Task',
+        }
+    ]
 });
 
 export default mongoose.model("Appointments", appointmentSchema);
