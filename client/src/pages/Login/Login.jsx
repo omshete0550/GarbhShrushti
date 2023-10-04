@@ -6,7 +6,7 @@ import axios from "axios";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 
-const options = ["Institution", "User"];
+const options = ["Doctor","Patient"];
 const defaultOption = options[0];
 
 const Login = () => {
@@ -81,8 +81,8 @@ const Login = () => {
                 required={true}
               >
                 <option value="">Select User</option>
-                <option value="User">User</option>
-                <option value="Institution">Institution</option>
+                <option value="User">Patient</option>
+                <option value="Institution">Doctor</option>
               </select>
             </div>
             <div className="input-container">
