@@ -7,8 +7,8 @@ function App() {
   return (
     <>
     <Navbar/>
-     <PatientHome/>
-     <Chat/>
+     <PatientHome />
+     <Chat />
     </>
   )
 }

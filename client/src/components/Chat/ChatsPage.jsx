@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { PrettyChatWindow } from "react-chat-engine-pretty";
 
 export default function ChatsPage(props) {

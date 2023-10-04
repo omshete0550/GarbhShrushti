@@ -7,6 +7,7 @@ import doctorsRoute from "./routes/doctor.js"
 import appointmentsRoute from "./routes/appointment.js"
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import axios from "axios";
 const Port = 8800
 
 const app = express();
@@ -34,6 +35,31 @@ app.use("/api/auth", authRoute)
 app.use("/api/patients", patientsRoute)
 app.use("/api/doctors", doctorsRoute)
 app.use("/api/appointments", appointmentsRoute)
+app.post("/authenticate", async (req, res) => {
+  const { username } = req.body;
+  console.log(username)
+  try {
+    const r = await axios.put(
+      "https://api.chatengine.io/users/",
+      {
+        username: username,
+        secret: username,
+        first_name: username,
+      },
+      {
+        headers: {
+          "PRIVATE-KEY": "c671c7aa-cef2-41de-b4fc-38724bf9c5e0",
+        }
+      }
+    );
+    return res.status(200).json(r.data);
+  } catch (err) {
+    console.log(err)
+    return res.status(400).json(err)
+  }
+//   return res.json({ username: username, secret: "sha256..." });
+});
+
 
 app.use((err, req, res, next) => {
     const errorStatus = err.status || 500;

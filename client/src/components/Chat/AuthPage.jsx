@@ -2,21 +2,23 @@ import axios from 'axios'
 import { useState } from 'react';
 
 const AuthPage = (props) => {
-    const onSubmit = (e) => {
+    const [user, setUser] = useState(undefined);
+    async function onSubmits (e){
       e.preventDefault();
       const { value } = e.target[0];
-      axios.post("http://localhost:3001/authenticate",
+      console.log(value);
+      await axios.post("http://localhost:8800/authenticate",
       {
         username:value
       })
-      .then(r=>props.onAuth({...r.data,secret:value}))
+      .then(r=>props.onAuth({...r.data,secret:value}).then((res)=>console.log(res)))
       .catch(e=>console.log(e))
     //   props.onAuth({ username: value, secret: value });
     };
   
     return (
       <div className="background">
-        <form onSubmit={onSubmit} className="form-card">
+        <form onSubmit={onSubmits} className="form-card">
           <div className="form-title">Welcome 👋</div>
   
           <div className="form-subtitle">Set a username to get started</div>
