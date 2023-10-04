@@ -22,6 +22,11 @@ const patientSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    stage: {
+        type: Number,
+        default: 0,
+        max: 3,
+    },
     monthOfPregnancy: {
         type: Number,
         required: true,

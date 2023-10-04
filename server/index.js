@@ -4,6 +4,7 @@ import dotenv from "dotenv"
 import authRoute from "./routes/auth.js"
 import patientsRoute from "./routes/patients.js"
 import doctorsRoute from "./routes/doctor.js"
+import appointmentsRoute from "./routes/appointment.js"
 import cookieParser from "cookie-parser";
 import cors from "cors";
 const Port = 8800
@@ -32,6 +33,7 @@ app.use(express.json())
 app.use("/api/auth", authRoute)
 app.use("/api/patients", patientsRoute)
 app.use("/api/doctors", doctorsRoute)
+app.use("/api/appointments", appointmentsRoute)
 
 app.use((err, req, res, next) => {
     const errorStatus = err.status || 500;
