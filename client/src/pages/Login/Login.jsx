@@ -14,10 +14,11 @@ const Login = () => {
 
   const [UserName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [dChnage, setDChange] = useState("");
 
   const handleLogin = async () => {
     try {
-      const logUrl = "http://localhost:8800/api/auth/patientLogin";
+      const logUrl = (dChnage === "Patient") ? "http://localhost:8800/api/auth/patientLogin" : "http://localhost:8800/api/auth/doctorLogin";
 
       const data = {
         username: UserName,
@@ -45,7 +46,7 @@ const Login = () => {
         const data = await response.json();
         localStorage.setItem("userId", data._id);
         console.log(data);
-        navigate("/appointments");
+        navigate("/hhhh");
       } else {
         console.log("Login Failed");
       }
@@ -63,7 +64,6 @@ const Login = () => {
   //   }
   // }
 
-  const [dChnage, setDChange] = useState("");
   console.log(dChnage);
   return (
     <div className="LoginMainContainer">
