@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import PatientHome from './pages/PatientHome'
 import Navbar from '../src/components/Navbar/Navbar'
-import ChooseAppCategory from './pages/ChooseAppCategory'
+// import ChooseAppCategory from '../pages/ChooseAppCategory'
 import Chat from './pages/ChatInterface/chat'
 
 import {
@@ -12,7 +12,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Speciality from './pages/Speciality/Speciality';
 import DoctorList from './pages/DoctorList/DoctorList';
-import Navbar from './components/Navbar/Navbar';
+// import Navbar from './components/Navbar/Navbar';
 import BookAppt from './pages/bookAppt/bookAppt';
 const router = createBrowserRouter([
   {
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   },
   {
     path:"/appointments",
-    element: <Appointments />
+    element: <BookAppt />
   },
   {
     path:"/hhhh",
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-    <Navbar />
+    {/* <Navbar /> */}
      <RouterProvider router={router} />
     </>
   );

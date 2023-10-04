@@ -8,6 +8,11 @@ import appointmentsRoute from "./routes/appointment.js"
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import axios from "axios";
+import twilio from "twilio"
+import Appointment from "./models/Appointment.js";
+import bodyParser from "body-parser";
+import schedule from "node-schedule";
+
 const Port = 8800
 
 const app = express();
@@ -71,6 +76,79 @@ app.use((err, req, res, next) => {
         stack: err.stack,
     });
 });
+
+// twilio 
+const accountSid = 'AC8e37ed01b2f9f6eae2735b5dd7ec5f93';
+const authToken = '954b6a0c65e3cb9f487997f3aaa63f09';
+const twilioClient = new twilio(accountSid, authToken);
+app.use(bodyParser.json());
+
+app.post('/confirm-appointment', (req, res) => {
+  const { phoneNumber } = req.body;
+  twilioClient.messages
+    .create({
+      body: 'Your Appointment request has been received. We will get back to you soon.',
+      from: 'whatsapp:+14155238886',
+      to: `whatsapp:${phoneNumber}`,
+    })
+    .then((message) => {
+      console.log(`Confirmation message sent to ${phoneNumber}`);
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.error(`Error sending confirmation message to ${phoneNumber}:`, error);
+      res.status(500).send('Error sending confirmation message');
+    });
+});
+
+app.post('/accept-appointment', (req, res) => {
+  const { phoneNumber } = req.body;
+  twilioClient.messages
+    .create({
+      body: 'Your Appointment has been confirmed by the doctor.',
+      from: 'whatsapp:+14155238886',
+      to: `whatsapp:${phoneNumber}`,
+    })
+    .then((message) => {
+      console.log(`Appointment confirmation sent to ${phoneNumber}`);
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.error(`Error sending appointment confirmation to ${phoneNumber}:`, error);
+      res.status(500).send('Error sending appointment confirmation');
+    });
+});
+
+const sendAppointmentReminders = async () => {
+  const currentTime = new Date();
+  const appointments = await Appointment.find()
+console.log(appointments);
+  appointments.forEach((appointment) => {
+    const timeDifference = appointment.date - currentTime;
+    console.log(timeDifference);
+    if (timeDifference > 0 && timeDifference <= 30 * 60 * 1000) {
+      // Send a reminder 30 minutes before the appointment
+      twilioClient.messages
+        .create({
+          body: 'Your appointment is in 30 minutes. Please be prepared.',
+          from: 'whatsapp:+14155238886',
+          to: `whatsapp:${appointment.phoneNumber}`,
+        })
+        .then((message) => {
+          console.log(`Reminder sent to ${appointment.phoneNumber}`);
+        })
+        .catch((error) => {
+          console.error(`Error sending reminder to ${appointment.phoneNumber}:`, error);
+        });
+    }
+  });
+};
+
+// Schedule a job to check for reminders every minute (adjust the schedule as needed)
+schedule.scheduleJob('* * * * *', sendAppointmentReminders);
+
+
+
 
 app.listen(Port, () => {
     connect()

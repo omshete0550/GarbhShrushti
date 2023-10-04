@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {LuSyringe} from "react-icons/lu"
 import {FaUserDoctor} from "react-icons/fa6"
 import {AiFillMedicineBox} from "react-icons/ai"
@@ -8,18 +8,24 @@ import {BsBookmarkCheckFill} from "react-icons/bs"
 import "./PatientHome.css";
 import ApptTable from '../components/Navbar/PatientHome/ApptTable'
 const PatientHome = () => {
-    const tasksData = [
-  {
-    id: 1,
-    title: 'Almonds Intake',
-    description: 'Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....',
-  },
-  {
-    id: 2,
-    title: 'Almonds Intake',
-    description: 'Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....',
-  },
-];
+    const [tasksData, setTasksData] = useState([
+        {
+          id: 1,
+          title: 'Almonds Intake',
+          description: 'Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....',
+        },
+        {
+          id: 2,
+          title: 'Exercise Time',
+          description: 'Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....',
+        },
+      ]);
+    
+      const handleRemoveTask = (taskId) => {
+        // Filter out the task with the specified taskId
+        const updatedTasks = tasksData.filter((task) => task.id !== taskId);
+        setTasksData(updatedTasks);
+      };
   return (
     <div>
         <div className="PatientPane">
@@ -123,7 +129,7 @@ const PatientHome = () => {
                                 </div>
                                 <div className="accessbtns">
                                 {/* <button className='cross'> X </button> */}
-                                <button className='correct'> ✓ </button>
+                                <button className='correct' onClick={() => handleRemoveTask(task.id)}> ✓ </button>
                                 </div>
                             </li>
                         ))}
