@@ -1,9 +1,9 @@
 import React from 'react';
-import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
-import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
-import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
+import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock, AiFillCalendar } from 'react-icons/ai';
+import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart, FiHome } from 'react-icons/fi';
+import { BsKanban, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsCalendar, BsCheckSquare } from 'react-icons/bs';
 import { BiColorFill } from 'react-icons/bi';
-import { IoMdContacts } from 'react-icons/io';
+import { IoMdCalendar, IoMdContacts } from 'react-icons/io';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
@@ -44,22 +44,30 @@ export const gridOrderStatus = (props) => (
 );
 
 export const kanbanGrid = [
-  { headerText: 'To Do',
+  {
+    headerText: 'To Do',
     keyField: 'Open',
-    allowToggle: true },
+    allowToggle: true
+  },
 
-  { headerText: 'In Progress',
+  {
+    headerText: 'In Progress',
     keyField: 'InProgress',
-    allowToggle: true },
+    allowToggle: true
+  },
 
-  { headerText: 'Testing',
+  {
+    headerText: 'Testing',
     keyField: 'Testing',
     allowToggle: true,
-    isExpanded: false },
+    isExpanded: false
+  },
 
-  { headerText: 'Done',
+  {
+    headerText: 'Done',
     keyField: 'Close',
-    allowToggle: true },
+    allowToggle: true
+  },
 ];
 const gridEmployeeProfile = (props) => (
   <div className="flex items-center gap-2">
@@ -323,20 +331,26 @@ export const colorMappingData = [
 ];
 
 export const rangeColorMapping = [
-  { label: '1°C to 10°C',
+  {
+    label: '1°C to 10°C',
     start: '1',
     end: '10',
-    colors: colorMappingData[1] },
+    colors: colorMappingData[1]
+  },
 
-  { label: '11°C to 20°C',
+  {
+    label: '11°C to 20°C',
     start: '11',
     end: '20',
-    colors: colorMappingData[2] },
+    colors: colorMappingData[2]
+  },
 
-  { label: '21°C to 30°C',
+  {
+    label: '21°C to 30°C',
     start: '21',
     end: '30',
-    colors: colorMappingData[3] },
+    colors: colorMappingData[3]
+  },
 
 ];
 
@@ -393,39 +407,58 @@ export const LinePrimaryYAxis = {
 
 export const customersGrid = [
   { type: 'checkbox', width: '50' },
-  { headerText: 'Name',
+  {
+    headerText: 'Name',
     width: '150',
     template: customerGridImage,
-    textAlign: 'Center' },
-  { field: 'ProjectName',
-    headerText: 'Project Name',
+    textAlign: 'Center'
+  },
+  {
+    field: 'ProjectName',
+    headerText: 'Stage',
     width: '150',
-    textAlign: 'Center' },
-  { field: 'Status',
-    headerText: 'Status',
-    width: '130',
-    format: 'yMd',
-    textAlign: 'Center',
-    template: customerGridStatus },
+    textAlign: 'Center'
+  },
+  // {
+  //   field: 'Status',
+  //   headerText: 'Status',
+  //   width: '130',
+  //   format: 'yMd',
+  //   textAlign: 'Center',
+  //   template: customerGridStatus
+  // },
   {
     field: 'Weeks',
-    headerText: 'Weeks',
+    headerText: 'Date',
     width: '100',
     format: 'C2',
-    textAlign: 'Center' },
-  { field: 'Budget',
-    headerText: 'Budget',
-    width: '100',
-    format: 'yMd',
-    textAlign: 'Center' },
+    textAlign: 'Center'
+  },
+  {
+    field: 'Continued',
+    headerText: 'Accept',
+    width: 150,
+    // textAlign: 'Center',
+    template: () => <img src="https://cdn-icons-png.flaticon.com/512/5289/5289675.png" width={30} height={30} />,
+  },
+  {
+    field: 'Continued',
+    headerText: 'Deny',
+    width: 150,
+    // textAlign: 'Center',
+    template: () => <img src="https://png.pngtree.com/png-vector/20221215/ourmid/pngtree-wrong-icon-png-image_6525689.png" width={30} height={30} />,
+  },
 
-  { field: 'Location',
-    headerText: 'Location',
-    width: '150',
-    textAlign: 'Center' },
+  // {
+  //   field: 'Location',
+  //   headerText: 'Location',
+  //   width: '150',
+  //   textAlign: 'Center'
+  // },
 
-  { field: 'CustomerID',
-    headerText: 'Customer ID',
+  {
+    field: 'CustomerID',
+    headerText: 'Patient ID',
     width: '120',
     textAlign: 'Center',
     isPrimaryKey: true,
@@ -434,39 +467,47 @@ export const customersGrid = [
 ];
 
 export const employeesGrid = [
-  { headerText: 'Employee',
+  {
+    field: 'EmployeeID',
+    headerText: 'Patient ID',
+    width: '125',
+    textAlign: 'Center'
+  },
+  {
+    headerText: 'Patient',
     width: '150',
     template: gridEmployeeProfile,
-    textAlign: 'Center' },
-  { field: 'Name',
+    textAlign: 'Center'
+  },
+  {
+    field: 'Name',
     headerText: '',
     width: '0',
     textAlign: 'Center',
   },
-  { field: 'Title',
-    headerText: 'Designation',
+  {
+    field: 'Title',
+    headerText: 'Stage',
     width: '170',
     textAlign: 'Center',
   },
-  { headerText: 'Country',
-    width: '120',
-    textAlign: 'Center',
-    template: gridEmployeeCountry },
-
-  { field: 'HireDate',
-    headerText: 'Hire Date',
+  {
+    field: 'HireDate',
+    headerText: 'Appointment Date',
     width: '135',
     format: 'yMd',
-    textAlign: 'Center' },
+    textAlign: 'Center'
+  },
 
-  { field: 'ReportsTo',
-    headerText: 'Reports To',
-    width: '120',
-    textAlign: 'Center' },
-  { field: 'EmployeeID',
-    headerText: 'Employee ID',
-    width: '125',
-    textAlign: 'Center' },
+  // { headerText: 'Location',
+  //   width: '120',
+  //   textAlign: 'Center',
+  //   template: gridEmployeeCountry },
+  // { field: 'ReportsTo',
+  //   headerText: 'Reports To',
+  //   width: '120',
+  //   textAlign: 'Center' },
+
 ];
 
 export const links = [
@@ -475,7 +516,8 @@ export const links = [
     links: [
       {
         name: 'ecommerce',
-        icon: <FiShoppingBag />,
+        titleName: 'Dashboard',
+        icon: <FiHome />,
       },
     ],
   },
@@ -484,16 +526,19 @@ export const links = [
     title: 'Pages',
     links: [
       {
+        name: 'customers',
+        titleName: 'New Appointments',
+        icon: <RiContactsLine />,
+      },
+      {
         name: 'orders',
-        icon: <AiOutlineShoppingCart />,
+        titleName: 'Ongoing Appointments',
+        icon: <AiFillCalendar />,
       },
       {
         name: 'employees',
-        icon: <IoMdContacts />,
-      },
-      {
-        name: 'customers',
-        icon: <RiContactsLine />,
+        titleName: 'Past Appointments',
+        icon: <IoMdCalendar />,
       },
     ],
   },
@@ -502,60 +547,63 @@ export const links = [
     links: [
       {
         name: 'calendar',
+        titleName: 'Calendar',
         icon: <AiOutlineCalendar />,
       },
       {
         name: 'kanban',
+        titleName: 'To-Do List',
         icon: <BsKanban />,
       },
       {
         name: 'editor',
+        titleName: 'Blog',
         icon: <FiEdit />,
       },
-      {
-        name: 'color-picker',
-        icon: <BiColorFill />,
-      },
+      // {
+      //   name: 'color-picker',
+      //   icon: <BiColorFill />,
+      // },
     ],
   },
-  {
-    title: 'Charts',
-    links: [
-      {
-        name: 'line',
-        icon: <AiOutlineStock />,
-      },
-      {
-        name: 'area',
-        icon: <AiOutlineAreaChart />,
-      },
+  // {
+  //   title: 'Charts',
+  //   links: [
+  //     {
+  //       name: 'line',
+  //       icon: <AiOutlineStock />,
+  //     },
+  //     {
+  //       name: 'area',
+  //       icon: <AiOutlineAreaChart />,
+  //     },
 
-      {
-        name: 'bar',
-        icon: <AiOutlineBarChart />,
-      },
-      {
-        name: 'pie',
-        icon: <FiPieChart />,
-      },
-      {
-        name: 'financial',
-        icon: <RiStockLine />,
-      },
-      {
-        name: 'color-mapping',
-        icon: <BsBarChart />,
-      },
-      {
-        name: 'pyramid',
-        icon: <GiLouvrePyramid />,
-      },
-      {
-        name: 'stacked',
-        icon: <AiOutlineBarChart />,
-      },
-    ],
-  },
+  //     {
+  //       name: 'bar',
+  //       icon: <AiOutlineBarChart />,
+  //     },
+  //     {
+  //       name: 'pie',
+  //       icon: <FiPieChart />,
+  //     },
+  //     {
+  //       name: 'financial',
+  //       icon: <RiStockLine />,
+  //     },
+  //     {
+  //       name: 'color-mapping',
+  //       icon: <BsBarChart />,
+  //     },
+  //     {
+  //       name: 'pyramid',
+  //       icon: <GiLouvrePyramid />,
+  //     },
+  //     {
+  //       name: 'stacked',
+  //       icon: <AiOutlineBarChart />,
+  //     },
+  //   ],
+  // },
 ];
 
 export const cartData = [
@@ -618,90 +666,135 @@ export const earningData = [
     icon: <MdOutlineSupervisorAccount />,
     amount: '39,354',
     percentage: '-4%',
-    title: 'Customers',
+    title: 'Patient',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
     pcColor: 'red-600',
   },
   {
-    icon: <BsBoxSeam />,
+    icon: <BsCalendar />,
     amount: '4,396',
     percentage: '+23%',
-    title: 'Products',
+    title: 'Appointments',
     iconColor: 'rgb(255, 244, 229)',
     iconBg: 'rgb(254, 201, 15)',
     pcColor: 'green-600',
   },
   {
     icon: <FiBarChart />,
-    amount: '423,39',
-    percentage: '+38%',
-    title: 'Sales',
+    amount: '22 Years',
+    percentage: '50%',
+    title: 'Experience',
     iconColor: 'rgb(228, 106, 118)',
     iconBg: 'rgb(255, 244, 229)',
 
     pcColor: 'green-600',
   },
-  {
-    icon: <HiOutlineRefresh />,
-    amount: '39,354',
-    percentage: '-12%',
-    title: 'Refunds',
-    iconColor: 'rgb(0, 194, 146)',
-    iconBg: 'rgb(235, 250, 242)',
-    pcColor: 'red-600',
-  },
+  // {
+  //   icon: <HiOutlineRefresh />,
+  //   amount: '39,354',
+  //   percentage: '-12%',
+  //   title: 'Refunds',
+  //   iconColor: 'rgb(0, 194, 146)',
+  //   iconBg: 'rgb(235, 250, 242)',
+  //   pcColor: 'red-600',
+  // },
 ];
 
 export const recentTransactions = [
   {
-    icon: <BsCurrencyDollar />,
-    amount: '+$350',
-    title: 'Paypal Transfer',
-    desc: 'Money Added',
+    icon: <BsCheckSquare />,
+    amount: '2023-10-02 | 10:30 AM',
+    title: 'Sanjay Singh',
+    desc: 'Annual check-up',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
     pcColor: 'green-600',
   },
   {
-    icon: <BsShield />,
-    amount: '-$560',
-    desc: 'Bill Payment',
-    title: 'Wallet',
-    iconColor: 'rgb(0, 194, 146)',
-    iconBg: 'rgb(235, 250, 242)',
-    pcColor: 'red-600',
-  },
-  {
-    icon: <FiCreditCard />,
-    amount: '+$350',
-    title: 'Credit Card',
-    desc: 'Money reversed',
-    iconColor: 'rgb(255, 244, 229)',
-    iconBg: 'rgb(254, 201, 15)',
-
-    pcColor: 'green-600',
-  },
-  {
-    icon: <TiTick />,
-    amount: '+$350',
-    title: 'Bank Transfer',
-    desc: 'Money Added',
-
-    iconColor: 'rgb(228, 106, 118)',
-    iconBg: 'rgb(255, 244, 229)',
-    pcColor: 'green-600',
-  },
-  {
-    icon: <BsCurrencyDollar />,
-    amount: '-$50',
-    percentage: '+38%',
-    title: 'Refund',
-    desc: 'Payment Sent',
+    icon: <BsCheckSquare />,
+    amount: '2023-10-02 | 12.00 PM',
+    title: 'Anish Pandey',
+    desc: 'Hypertension',
     iconColor: '#03C9D7',
     iconBg: '#E5FAFB',
-    pcColor: 'red-600',
+    pcColor: 'green-600',
   },
+  {
+    icon: <BsCheckSquare />,
+    amount: '2023-10-02 | 1:15 PM',
+    title: 'Vivek Varma',
+    desc: 'Flu symptoms',
+    iconColor: '#03C9D7',
+    iconBg: '#E5FAFB',
+    pcColor: 'green-600',
+  },
+  {
+    icon: <BsCheckSquare />,
+    amount: '2023-10-02 | 3:30 PM',
+    title: 'Sanjay Singh',
+    desc: 'Dental check-up',
+    iconColor: '#03C9D7',
+    iconBg: '#E5FAFB',
+    pcColor: 'green-600',
+  },
+  {
+    icon: <BsCheckSquare />,
+    amount: '2023-10-02 | 10:30 AM',
+    title: 'Sanjay Singh',
+    desc: 'Eye exam',
+    iconColor: '#03C9D7',
+    iconBg: '#E5FAFB',
+    pcColor: 'green-600',
+  },
+  {
+    icon: <BsCheckSquare />,
+    amount: '2023-10-02 | 10:30 AM',
+    title: 'Sanjay Singh',
+    desc: 'Physical therapy',
+    iconColor: '#03C9D7',
+    iconBg: '#E5FAFB',
+    pcColor: 'green-600',
+  },
+  // {
+  //   icon: <BsShield />,
+  //   amount: '-$560',
+  //   desc: 'Bill Payment',
+  //   title: 'Wallet',
+  //   iconColor: 'rgb(0, 194, 146)',
+  //   iconBg: 'rgb(235, 250, 242)',
+  //   pcColor: 'red-600',
+  // },
+  // {
+  //   icon: <FiCreditCard />,
+  //   amount: '+$350',
+  //   title: 'Credit Card',
+  //   desc: 'Money reversed',
+  //   iconColor: 'rgb(255, 244, 229)',
+  //   iconBg: 'rgb(254, 201, 15)',
+
+  //   pcColor: 'green-600',
+  // },
+  // {
+  //   icon: <TiTick />,
+  //   amount: '+$350',
+  //   title: 'Bank Transfer',
+  //   desc: 'Money Added',
+
+  //   iconColor: 'rgb(228, 106, 118)',
+  //   iconBg: 'rgb(255, 244, 229)',
+  //   pcColor: 'green-600',
+  // },
+  // {
+  //   icon: <BsCurrencyDollar />,
+  //   amount: '-$50',
+  //   percentage: '+38%',
+  //   title: 'Refund',
+  //   desc: 'Payment Sent',
+  //   iconColor: '#03C9D7',
+  //   iconBg: '#E5FAFB',
+  //   pcColor: 'red-600',
+  // },
 ];
 
 export const weeklyStats = [
@@ -871,21 +964,22 @@ export const userProfileData = [
 ];
 
 export const ordersGrid = [
-  {
-    headerText: 'Image',
-    template: gridOrderImage,
-    textAlign: 'Center',
-    width: '120',
-  },
+  // {
+  //   headerText: 'Image',
+  //   template: gridOrderImage,
+  //   textAlign: 'Center',
+  //   width: '120',
+  // },
   {
     field: 'OrderItems',
-    headerText: 'Item',
+    headerText: 'Fever',
     width: '150',
     editType: 'dropdownedit',
     textAlign: 'Center',
   },
-  { field: 'CustomerName',
-    headerText: 'Customer Name',
+  {
+    field: 'CustomerName',
+    headerText: 'Patient Name',
     width: '150',
     textAlign: 'Center',
   },
@@ -906,18 +1000,20 @@ export const ordersGrid = [
   },
   {
     field: 'OrderID',
-    headerText: 'Order ID',
+    headerText: 'Pateint ID',
     width: '120',
     textAlign: 'Center',
   },
 
-  {
-    field: 'Location',
-    headerText: 'Location',
-    width: '150',
-    textAlign: 'Center',
-  },
+  // {
+  //   field: 'Location',
+  //   headerText: 'Location',
+  //   width: '150',
+  //   textAlign: 'Center',
+  // },
 ];
+
+
 
 export const customersData = [
   {
@@ -927,7 +1023,7 @@ export const customersData = [
     CustomerImage:
       avatar2,
     ProjectName: 'Hosting Press HTML',
-    Status: 'Active',
+    Status: 'Accept | Deny',
     StatusBg: '#8BE78B',
     Weeks: '40',
     Budget: '$2.4k',
@@ -1484,13 +1580,143 @@ export const customersData = [
 export const employeesData = [
   {
     EmployeeID: 1,
+    Name: 'Rajesh Kumar',
+    Title: 'Fever Specialist',
+    HireDate: '01/02/2021',
+    Country: 'Mumbai, India',
+    ReportsTo: 'Dr. Arjun Sharma',
+    EmployeeImage: avatar3,
+  },
+  {
+    EmployeeID: 2,
+    Name: 'Priya Gupta',
+    Title: 'Fever Specialist',
+    HireDate: '01/02/2021',
+    Country: 'Delhi, India',
+    ReportsTo: 'Dr. Arjun Sharma',
+    EmployeeImage: avatar3,
+  },
+  {
+    EmployeeID: 3,
+    Name: 'Amit Patel',
+    Title: 'Fever Specialist',
+    HireDate: '01/02/2021',
+    Country: 'Mumbai, India',
+    ReportsTo: 'Dr. Arjun Sharma',
+    EmployeeImage: avatar4,
+  },
+  {
+    EmployeeID: 4,
+    Name: 'Dr. Arjun Sharma',
+    Title: 'Head of Department',
+    HireDate: '01/02/2021',
+    Country: 'Mumbai, India',
+    ReportsTo: '',
+    EmployeeImage: avatar2,
+  },
+  {
+    EmployeeID: 5,
+    Name: 'Sneha Verma',
+    Title: 'Fever Specialist',
+    HireDate: '01/02/2021',
+    Country: 'Delhi, India',
+    ReportsTo: 'Dr. Arjun Sharma',
+    EmployeeImage: avatar,
+  },
+  {
+    EmployeeID: 6,
+    Name: 'Anita Singh',
+    Title: 'Fever Specialist',
+    HireDate: '01/02/2021',
+    Country: 'Bangalore, India',
+    ReportsTo: 'Dr. Arjun Sharma',
+    EmployeeImage: avatar4,
+  },
+  {
+    EmployeeID: 7,
+    Name: 'Dr. Karthik Reddy',
+    Title: 'Head of Department',
+    HireDate: '01/02/2021',
+    Country: 'Delhi, India',
+    ReportsTo: '',
+    EmployeeImage: avatar2,
+  },
+  {
+    EmployeeID: 8,
+    Name: 'Suman Gupta',
+    Title: 'Fever Specialist',
+    HireDate: '01/02/2021',
+    Country: 'Mumbai, India',
+    ReportsTo: 'Dr. Karthik Reddy',
+    EmployeeImage: avatar,
+  },
+  {
+    EmployeeID: 9,
+    Name: 'Rahul Sharma',
+    Title: 'Fever Specialist',
+    HireDate: '01/02/2021',
+    Country: 'Delhi, India',
+    ReportsTo: 'Dr. Karthik Reddy',
+    EmployeeImage: avatar4,
+  },
+  {
+    EmployeeID: 10,
+    Name: 'Dr. Karthik Reddy',
+    Title: 'Head of Department',
+    HireDate: '01/02/2021',
+    Country: 'Delhi, India',
+    ReportsTo: '',
+    EmployeeImage: avatar2,
+  },
+  {
+    EmployeeID: 4,
+    Name: 'Siegbert Gottfried',
+    Title: 'Marketing Head',
+    HireDate: '01/02/2021',
+    Country: 'USA',
+    ReportsTo: 'Carson',
+    EmployeeImage:
+      avatar2,
+  },
+  {
+    EmployeeID: 5,
+    Name: 'Omar Darobe',
+    Title: 'HR',
+    HireDate: '01/02/2021',
+    Country: 'USA',
+    ReportsTo: 'Carson',
+    EmployeeImage:
+      avatar,
+  },
+  {
+    EmployeeID: 4,
+    Name: 'Penjani Inyene',
+    Title: 'Marketing Head',
+    HireDate: '01/02/2021',
+    Country: 'USA',
+    ReportsTo: 'Carson',
+    EmployeeImage:
+      avatar,
+  },
+  {
+    EmployeeID: 5,
+    Name: 'Miron Vitold',
+    Title: 'HR',
+    HireDate: '01/02/2021',
+    Country: 'USA',
+    ReportsTo: 'Carson',
+    EmployeeImage:
+      avatar2,
+  },
+  {
+    EmployeeID: 1,
     Name: 'Nancy Davolio',
     Title: 'Sales Representative',
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
-    avatar3,
+      avatar,
   },
   {
     EmployeeID: 2,
@@ -1560,7 +1786,7 @@ export const employeesData = [
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
-    avatar2,
+      avatar2,
 
   },
   {
@@ -1631,77 +1857,7 @@ export const employeesData = [
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
-    avatar,
-  },
-  {
-    EmployeeID: 2,
-    Name: 'Nasimiyu Danai',
-    Title: 'Marketing Head',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar3,
-  },
-  {
-    EmployeeID: 3,
-    Name: 'Iulia Albu',
-    Title: 'HR',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar4,
-  },
-  {
-    EmployeeID: 4,
-    Name: 'Siegbert Gottfried',
-    Title: 'Marketing Head',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
       avatar2,
-  },
-  {
-    EmployeeID: 5,
-    Name: 'Omar Darobe',
-    Title: 'HR',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
-  },
-  {
-    EmployeeID: 4,
-    Name: 'Penjani Inyene',
-    Title: 'Marketing Head',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
-  },
-  {
-    EmployeeID: 5,
-    Name: 'Miron Vitold',
-    Title: 'HR',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
-  },
-  {
-    EmployeeID: 1,
-    Name: 'Nancy Davolio',
-    Title: 'Sales Representative',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
-    avatar2,
 
   },
   {
@@ -1772,7 +1928,7 @@ export const employeesData = [
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
-    avatar2,
+      avatar2,
 
   },
   {
@@ -1843,7 +1999,7 @@ export const employeesData = [
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
-    avatar2,
+      avatar2,
 
   },
   {
@@ -1914,7 +2070,7 @@ export const employeesData = [
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
-    avatar2,
+      avatar2,
 
   },
   {
@@ -1985,78 +2141,7 @@ export const employeesData = [
     Country: 'USA',
     ReportsTo: 'Carson',
     EmployeeImage:
-    avatar2,
-
-  },
-  {
-    EmployeeID: 2,
-    Name: 'Nasimiyu Danai',
-    Title: 'Marketing Head',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar3,
-  },
-  {
-    EmployeeID: 3,
-    Name: 'Iulia Albu',
-    Title: 'HR',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar4,
-  },
-  {
-    EmployeeID: 4,
-    Name: 'Siegbert Gottfried',
-    Title: 'Marketing Head',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
       avatar2,
-  },
-  {
-    EmployeeID: 5,
-    Name: 'Omar Darobe',
-    Title: 'HR',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
-  },
-  {
-    EmployeeID: 4,
-    Name: 'Penjani Inyene',
-    Title: 'Marketing Head',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar,
-  },
-  {
-    EmployeeID: 5,
-    Name: 'Miron Vitold',
-    Title: 'HR',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
-      avatar2,
-  },
-  {
-    EmployeeID: 1,
-    Name: 'Nancy Davolio',
-    Title: 'Sales Representative',
-    HireDate: '01/02/2021',
-    Country: 'USA',
-    ReportsTo: 'Carson',
-    EmployeeImage:
-    avatar2,
 
   },
   {
@@ -2127,7 +2212,7 @@ export const ordersData = [
     CustomerName: 'Vinet',
 
     TotalAmount: 32.38,
-    OrderItems: 'Fresh Tomato',
+    OrderItems: 'HyperTension',
     Location: 'USA',
     Status: 'pending',
     StatusBg: '#FB9678',
@@ -2176,7 +2261,7 @@ export const ordersData = [
     Status: 'rejected',
     StatusBg: 'red',
     ProductImage:
-    product1,
+      product1,
   },
   {
     OrderID: 94757,
@@ -3072,14 +3157,14 @@ export const lineChartData = [
 export const dropdownData = [
   {
     Id: '1',
-    Time: 'March 2021',
+    Time: 'Sept 2023',
   },
   {
     Id: '2',
-    Time: 'April 2021',
+    Time: 'Aug 2023',
   }, {
     Id: '3',
-    Time: 'May 2021',
+    Time: 'July 2023',
   },
 ];
 export const SparklineAreaData = [
@@ -3092,29 +3177,35 @@ export const SparklineAreaData = [
 ];
 
 export const lineCustomSeries = [
-  { dataSource: lineChartData[0],
+  {
+    dataSource: lineChartData[0],
     xName: 'x',
     yName: 'y',
     name: 'Germany',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
+    type: 'Line'
+  },
 
-  { dataSource: lineChartData[1],
+  {
+    dataSource: lineChartData[1],
     xName: 'x',
     yName: 'y',
     name: 'England',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
+    type: 'Line'
+  },
 
-  { dataSource: lineChartData[2],
+  {
+    dataSource: lineChartData[2],
     xName: 'x',
     yName: 'y',
     name: 'India',
     width: '2',
     marker: { visible: true, width: 10, height: 10 },
-    type: 'Line' },
+    type: 'Line'
+  },
 
 ];
 
@@ -3177,7 +3268,8 @@ export const stackedChartData = [
 
 export const stackedCustomSeries = [
 
-  { dataSource: stackedChartData[0],
+  {
+    dataSource: stackedChartData[0],
     xName: 'x',
     yName: 'y',
     name: 'Budget',
@@ -3186,7 +3278,8 @@ export const stackedCustomSeries = [
 
   },
 
-  { dataSource: stackedChartData[1],
+  {
+    dataSource: stackedChartData[1],
     xName: 'x',
     yName: 'y',
     name: 'Expense',
