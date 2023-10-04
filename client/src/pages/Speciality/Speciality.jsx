@@ -6,7 +6,7 @@ const Speciality = () => {
     <>
     <h1 className="specialityHeading">Choose The Speciality</h1>
       <div className="cards-list">
-        <Link to="/doctor-list" style={{ textDecoration: "none" }}>
+        <Link to= {`/doctor-list/${0}`} style={{ textDecoration: "none" }}>
           <div className="card1">
             <div className="card_image">
               {" "}
@@ -18,7 +18,7 @@ const Speciality = () => {
           </div>
         </Link>
 
-        <Link to="/doctor-list"  style={{ textDecoration: "none" }}>
+        <Link to={`/doctor-list/${1}`}  style={{ textDecoration: "none" }}>
           <div className="card1">
             <div className="card_image">
               {" "}

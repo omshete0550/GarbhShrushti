@@ -1,4 +1,9 @@
 import { useState } from 'react'
+import PatientHome from './pages/PatientHome'
+import Navbar from '../src/components/Navbar/Navbar'
+// import ChooseAppCategory from './pages/ChooseAppCategory'
+import Chat from './pages/ChatInterface/chat'
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -7,7 +12,6 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Speciality from './pages/Speciality/Speciality';
 import DoctorList from './pages/DoctorList/DoctorList';
-import Navbar from './components/Navbar/Navbar';
 import BookAppt from './pages/bookAppt/bookAppt';
 import Trimester from './pages/Trimester/Trimester';
 import Vaccine from './pages/Vaccine/Vaccine';
@@ -26,7 +30,18 @@ const router = createBrowserRouter([
     element: <Speciality />,
   },
   {
-    path:"/doctor-list",
+    path:"/appointments",
+    element: <BookAppt />
+  },
+  {
+    path:"/hhhh",
+    element: <> <Navbar/>
+    <PatientHome />
+    {/* <Chat /> */}
+    </>
+  },
+  {
+        path:"/doctor-list/:variableName",
     element: <DoctorList />
   },
   {
@@ -50,7 +65,6 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-    <Navbar />
      <RouterProvider router={router} />
     </>
   );

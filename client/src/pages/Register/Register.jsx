@@ -7,27 +7,59 @@ import axios from "axios";
 const Register = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
-  const [UserName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [age,setAge] = useState(0);
+  const [monthOfPregnancy,setMonthOfPregnancy] = useState(0);
+  const [location,setLocation] = useState("Na");
+  const [name,setFullName] = useState("");
+  const [data,setData] = useState({});
+  const [hospital,setHospital] = useState("");
+  const [dChnage, setDChange] = useState("");
+  const [url,setUrl] = useState("")
+  // const [stage,setStage] = useState(0)
+  // const [userInfo,setUserInfo] = useState({});
 
   const handleRegister = async () => {
     try {
       // Define your API endpoint for login
-      const regUrl = "http://localhost:8800/api/auth/register"; // Replace with your actual API URL
-
+      if(dChnage == 'Patient'){
+        setUrl("http://localhost:8800/api/auth/patientRegister");
+      }
+      else{
+        console.log("in doctor")
+        setUrl("http://localhost:8800/api/auth/doctorRegister");
+      }
       // Create a data object with user input
-      const data = {
-        email: email,
-        username: UserName,
-        password: password,
+      const userData = {
+        email,
+        username,
+        password,
+        age,
+        location,
+        name
       };
+    if(dChnage === "Doctor"){
+       userData.hospital = hospital;
+    }
+    else{
+      userData.monthOfPregnancy = monthOfPregnancy;
+    }
       console.log(data);
       // Make a POST request to the API
-      const response = await axios.post(regUrl, data);
+      const response = await fetch(url,{
+        method:"POST",
+        headers:{
+          'Content-Type':"application/json"
+        },
+        body:JSON.stringify(userData)
+      })
       console.log(response);
       // Handle the response, e.g., redirect to a dashboard on success
       if (response.status === 201) {
-        localStorage.setItem("userRegged", response.data);
+        const data = await response.json();
+        // localStorage.setItem("userRegged", response.data);
+        console.log(data);
         console.log("Registered User");
         navigate("/login");
 
@@ -35,7 +67,7 @@ const Register = () => {
         // You can use React Router to navigate to another page
         // Example: history.push("/dashboard");
       } else {
-        // Handle login failure, display an error message, etc.
+        console.log(response)
       }
     } catch (error) {
       // Handle errors, e.g., network issues, server errors
@@ -71,13 +103,26 @@ const Register = () => {
 
             <h2>Hey! Let's Get Started 👋🏻</h2>
             <p>Enter your credentials to register your account.</p>
+            <div style={{ width: "31em", marginBottom: "2em" }}>
+              <select
+                style={{ width: "41em", padding: "10px 20px" }}
+                id="interestedService"
+                value={dChnage}
+                onChange={(e) => setDChange(e.target.value)}
+                required={true}
+              >
+                <option value="">Select User</option>
+                <option value="Patient">Patient</option>
+                <option value="Doctor">Doctor</option>
+              </select>
+            </div>
 
             <div className="input-container">
               <div className="form-group">
-                <label htmlFor="email">User Name</label>
+                <label htmlFor="username">Userame</label>
                 <input
                   type="text"
-                  id="email"
+                  id="username"
                   autocomplete="off"
                   onChange={(e) => setUserName(e.target.value)}
                 />
@@ -97,6 +142,15 @@ const Register = () => {
                 <input type="number" id="email" autocomplete="off" onChange={(e) => setPhone(e.target.value)}/>
               </div> */}
               <div className="form-group">
+                <label htmlFor="username">Full Name</label>
+                <input
+                  type="text"
+                  id="fullname"
+                  autocomplete="off"
+                  onChange={(e) => setFullName(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <input
                   type="password"
@@ -104,6 +158,60 @@ const Register = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
+
+              <div className="form-group">
+                <label htmlFor="location">Location</label>
+                <input
+                  type="text"
+                  id="location"
+                  onChange={(e) => setLocation(e.target.value)}
+                />
+              </div>
+
+              {dChnage==="Doctor" && <>
+              <div className="form-group">
+                <label htmlFor="password">Hospital</label>
+                <input
+                  type="text"
+                  id="hospital"
+                  onChange={(e) => setHospital(e.target.value)}
+                />
+              </div>
+              </>}
+      
+
+              <div className="form-group">
+                <label htmlFor="age">Age</label>
+                <input
+                  type="number"
+                  id="age"
+                  onChange={(e) => setAge(e.target.value)}
+                />
+              </div>
+
+              {/* <div className="form-group">
+                <label htmlFor="stage">Stage</label>
+                <input
+                  type="number"
+                  id="stage"
+                  onChange={(e) => setStage(e.target.value)}
+                />
+              </div> */}
+
+              {dChnage == "Patient" && (
+                <>
+                <div className="form-group">
+                <label htmlFor="stage">Month of Pregnancy</label>
+                <input
+                  type="number"
+                  id="monthOfPregnancy"
+                  onChange={(e) => setMonthOfPregnancy(e.target.value)}
+                />
+              </div>
+                </>
+              )}
+
+
             </div>
 
             <div className="remember-forgot">

@@ -2,9 +2,9 @@ import React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import {BsChatLeftTextFill} from "react-icons/bs"
+import {IoMdNotifications} from "react-icons/io"
 import { SiShopware } from "react-icons/si";
-import { BsChatLeftTextFill } from "react-icons/bs";
-import { IoMdNotifications } from "react-icons/io";
 import "./Navbar.css";
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);

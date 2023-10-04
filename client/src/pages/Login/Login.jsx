@@ -6,7 +6,7 @@ import axios from "axios";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 
-const options = ["Institution", "User"];
+const options = ["Doctor", "Patient"];
 const defaultOption = options[0];
 
 const Login = () => {
@@ -14,24 +14,52 @@ const Login = () => {
 
   const [UserName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [dChnage, setDChange] = useState("");
+  const [url,setUrl] = useState("");
 
   const handleLogin = async () => {
     try {
-      const logUrl = "http://localhost:8800/api/auth/login";
+      // const logUrl = (dChnage == "Patient") ? "http://localhost:8800/api/auth/patientLogin" : "http://localhost:8800/api/auth/doctorLogin";
+      if(dChnage === 'Patient'){
+        setUrl("http://localhost:8800/api/auth/patientLogin");
+      }
+      else{
+        setUrl("http://localhost:8800/api/auth/doctorLogin");
+      }
 
       const data = {
         username: UserName,
         password: password,
       };
-      if (dChnage === "Institution") {
-        navigate("/college-dashboard");
-      }
-      const response = await axios.post(logUrl, data);
+      console.log(data);
+      // if (dChnage === "Patient") {
+      //   navigate("/college-dashboard");
+      // }
+      const response = await fetch(
+        url,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
       if (response.status === 200) {
-        localStorage.setItem("userLoggedIn", response.data.username);
-        localStorage.setItem("userId", response.data._id);
-        localStorage.setItem("userLoggedInEmailID", response.data.email);
-        navigate("/dashboard");
+        // localStorage.setItem("userLoggedIn", response.data.username);
+        // localStorage.setItem("userId", response.data._id);
+        // localStorage.setItem("userLoggedInEmailID", response.data.email);
+        // navigate("/dashboard");
+        const data = await response.json();
+        localStorage.setItem("userId", data._id);
+        console.log(data);
+        if(dChnage == 'Patient'){
+          navigate("/hhhh");
+        }
+        else{
+          
+        }
+       
       } else {
         console.log("Login Failed");
       }
@@ -40,7 +68,15 @@ const Login = () => {
     }
   };
 
-  const [dChnage, setDChange] = useState("");
+  // async function handleLogin(){
+  //   if(dChnage == 'Patient'){
+  //     let resp = await fetch("http://localhost:8800/api/auth/patientLogin",{'METHOD':"POST"
+  //     }).then((res)=>res.json()).then((data)=>{
+  //       console.log(data);
+  //     });
+  //   }
+  // }
+
   console.log(dChnage);
   return (
     <div className="LoginMainContainer">
@@ -52,11 +88,12 @@ const Login = () => {
 
           <div className="content-container">
             <h1 className="section-heading">
-              Education is one thing no one can take away from you....
+              Providing Maternal and Prenatal Care
             </h1>
             <p className="section-paragraph">
-              Every step forward is a step towards knowledge. Embrace the
-              journey.
+              Ensuring the health and well-being of mothers and their babies is
+              our priority. Every step forward is a step towards a healthy
+              future. Embrace the journey to motherhood.
             </p>
           </div>
         </div>
@@ -81,8 +118,8 @@ const Login = () => {
                 required={true}
               >
                 <option value="">Select User</option>
-                <option value="User">User</option>
-                <option value="Institution">Institution</option>
+                <option value="Patient">Patient</option>
+                <option value="Doctor">Doctor</option>
               </select>
             </div>
             <div className="input-container">
