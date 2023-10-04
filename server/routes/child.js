@@ -6,7 +6,7 @@ import {
     getChildReqAppointments,
     getChilds,
     updateChild,
-} from "../controllers/patient.js";
+} from "../controllers/child.js";
 
 const router = express.Router();
 

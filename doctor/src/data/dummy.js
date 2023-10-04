@@ -1018,8 +1018,6 @@ export const ordersGrid = [
   // },
 ];
 
-
-
 export const customersData = [
   {
     CustomerID: 1001,

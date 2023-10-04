@@ -3,8 +3,8 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "@mui/material";
-// import { BsChatLeftTextFill } from "react-icons/bs";
-// import { IoMdNotifications } from "react-icons/io";
+import { BsChatLeftTextFill } from "react-icons/bs";
+import { IoMdNotifications } from "react-icons/io";
 import { SiShopware } from "react-icons/si";
 import "./Navbar.css";
 const Navbar = () => {

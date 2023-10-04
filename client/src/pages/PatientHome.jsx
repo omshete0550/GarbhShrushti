@@ -72,7 +72,7 @@ const PatientHome = () => {
             </div>
 
             <div className="ag-courses_item">
-              <a href="#" className="ag-courses-item_link">
+              <a href="http://localhost:5173/vaccine" className="ag-courses-item_link">
                 <div className="ag-courses-item_bg"></div>
 
                 <div className="ag-courses-item_title">
@@ -85,7 +85,7 @@ const PatientHome = () => {
             </div>
 
             <div className="ag-courses_item">
-              <a href="#" className="ag-courses-item_link">
+              <a href="http://localhost:5173/emergencychoose" className="ag-courses-item_link">
                 <div className="ag-courses-item_bg"></div>
 
                 <div className="ag-courses-item_title">
@@ -97,7 +97,8 @@ const PatientHome = () => {
               </a>
             </div>
 
-            <div onClick={handleAppointment} className="ag-courses_item">
+            {/* <div onClick={handleAppointment} className="ag-courses_item"> */}
+            <div className="ag-courses_item">
               <a
                 href="http://localhost:5173/speciality"
                 className="ag-courses-item_link"

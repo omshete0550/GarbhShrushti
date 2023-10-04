@@ -6,14 +6,15 @@ const Vaccine = () => {
   return (
     <>
       <div className="VaccineContainer">
-        <h1>Vaccination</h1>
+        <h1>National Immunization Chart</h1>
 
         <div style={{ display: "flex", marginTop: "2em" }}>
           <div style={{ width: "100%" }}>
             <CustomizedTimeline />
           </div>
           <div>
-            <h1 className="vaccineCen">Vaccine Centers</h1>
+            <h1 className="vaccineCen">Vaccination Centers</h1>
+            <div id="borderLeft"></div>
             <div className="Vaccinecards">
               {VaccineCenter.map((e, index) => (
                 <a className="card" key={index}>

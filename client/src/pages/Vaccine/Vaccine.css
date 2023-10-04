@@ -6,9 +6,13 @@
   color: #1977cc;
 }
 .vaccineCen {
+  text-align: center;
+  border-bottom: 2px solid #1977cc;
+  position: relative;
   font-size: 1.5em;
   margin-bottom: 1em;
 }
+
 /* @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
 * {
   margin: 0;

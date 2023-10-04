@@ -14,10 +14,13 @@ import Trimester from "./pages/Trimester/Trimester";
 import Vaccine from "./pages/Vaccine/Vaccine";
 import Nutrient from "./pages/Nutrient/Nutrient";
 import Footer from "./components/Footer/Footer";
+import EmergencyOption from "./pages/Speciality/EmergencyOption";
 const router = createBrowserRouter([
   {
     path: "/login",
-    element: <Login />,
+    element:<>
+      <Login />,
+    </> 
   },
   {
     path: "/register",
@@ -28,28 +31,47 @@ const router = createBrowserRouter([
     element: <Speciality />,
   },
   {
+    path: "/emergencyChoose",
+    element: <EmergencyOption />,
+  },
+  {
     path:"/appointments",
     element: <BookAppt />
   },
   {
     path: "/home",
-    element: <PatientHome />,
+    element:<>
+              <Navbar/>
+              <PatientHome />
+            </> 
   },
   {
     path: "/doctor-list/:variableName",
-    element: <DoctorList />,
+    element: <>
+              <Navbar/>
+              <DoctorList />
+              </>
   },
   {
     path: "/book-appointment",
-    element: <BookAppt />,
+    element: <>
+              <Navbar/>
+              <BookAppt />
+              </>
   },
   {
     path: "/trimester",
-    element: <Trimester />,
+    element: <>
+              <Navbar/>
+              <Trimester />
+              </>
   },
   {
     path: "/vaccine",
-    element: <Vaccine />,
+    element: <>
+              <Navbar/>
+              <Vaccine />
+              </>
   },
   {
     path: "/nutrient",
