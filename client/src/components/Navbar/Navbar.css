@@ -1,15 +1,37 @@
 /* Importing fonts */
 @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&family=Work+Sans:wght@300;500&display=swap');
-
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    place-items: none;
+}
 .navbarContainer{
     width: 100%;
     display: flex;
-    justify-content:space-between;
+    padding: 15px 10px;
+    background-color: #f0f0f0;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
-.navbarContainer h2
+.navbarContainer .heading{
+    width: 100%;
+    padding: 5px 10px;
+}
 .navbarContainer ul{
+    width: 50%;
     list-style: none;
     width: 100%;
     display: flex;
-    justify-content:space-between;
+    justify-content:flex-end;
+    column-gap: 3rem;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font-weight:700
+}
+.navbarContainer li:hover{
+cursor: pointer;
+color: rgb(50, 50, 229);
 }
