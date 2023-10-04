@@ -7,27 +7,42 @@ import axios from "axios";
 const Register = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
-  const [UserName, setUserName] = useState("");
+  const [name, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [age,setAge] = useState(0);
+  const [monthOfPregnancy,setMonthOfPregnancy] = useState(0);
+  const [location,setLocation] = useState("Na");
+  // const [stage,setStage] = useState(0)
+  // const [userInfo,setUserInfo] = useState({});
 
   const handleRegister = async () => {
     try {
       // Define your API endpoint for login
-      const regUrl = "http://localhost:8800/api/auth/register"; // Replace with your actual API URL
-
+      const regUrl = "http://localhost:8800/api/auth/patientRegister"; // Replace with your actual API URL
       // Create a data object with user input
       const data = {
         email: email,
-        username: UserName,
+        name: name,
         password: password,
+        age,
+        monthOfPregnancy,
+        location
       };
       console.log(data);
       // Make a POST request to the API
-      const response = await axios.post(regUrl, data);
+      const response = await fetch("http://localhost:8800/api/auth/patientRegister",{
+        method:"POST",
+        headers:{
+          'Content-Type':"application/json"
+        },
+        body:JSON.stringify(data)
+      })
       console.log(response);
       // Handle the response, e.g., redirect to a dashboard on success
       if (response.status === 201) {
-        localStorage.setItem("userRegged", response.data);
+        const data = await response.json();
+        // localStorage.setItem("userRegged", response.data);
+        console.log(data);
         console.log("Registered User");
         navigate("/login");
 
@@ -35,7 +50,7 @@ const Register = () => {
         // You can use React Router to navigate to another page
         // Example: history.push("/dashboard");
       } else {
-        // Handle login failure, display an error message, etc.
+        console.log(response)
       }
     } catch (error) {
       // Handle errors, e.g., network issues, server errors
@@ -74,7 +89,7 @@ const Register = () => {
 
             <div className="input-container">
               <div className="form-group">
-                <label htmlFor="email">User Name</label>
+                <label htmlFor="email">Name</label>
                 <input
                   type="text"
                   id="email"
@@ -104,6 +119,44 @@ const Register = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
+
+              <div className="form-group">
+                <label htmlFor="location">Location</label>
+                <input
+                  type="text"
+                  id="location"
+                  onChange={(e) => setLocation(e.target.value)}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="age">Age</label>
+                <input
+                  type="number"
+                  id="age"
+                  onChange={(e) => setAge(e.target.value)}
+                />
+              </div>
+
+              {/* <div className="form-group">
+                <label htmlFor="stage">Stage</label>
+                <input
+                  type="number"
+                  id="stage"
+                  onChange={(e) => setStage(e.target.value)}
+                />
+              </div> */}
+
+              <div className="form-group">
+                <label htmlFor="stage">Month of Pregnancy</label>
+                <input
+                  type="number"
+                  id="monthOfPregnancy"
+                  onChange={(e) => setMonthOfPregnancy(e.target.value)}
+                />
+              </div>
+
+
             </div>
 
             <div className="remember-forgot">
