@@ -6,6 +6,9 @@
   color: #1977cc;
 }
 .vaccineCen {
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   text-align: center;
   border-bottom: 2px solid #1977cc;
   position: relative;
@@ -52,7 +55,7 @@ p {
 }
 .Vaccinecards .card {
   margin: 0 auto;
-  max-width: 400px;
+  max-width: 374px;
   height: fit-content;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   border-radius: 8px;

@@ -5,6 +5,7 @@ import {AiFillMedicineBox} from "react-icons/ai"
 import {MdVaccines} from "react-icons/md"
 import {GiTalk} from "react-icons/gi"
 import {BsBookmarkCheckFill} from "react-icons/bs"
+import {IoFastFoodSharp} from "react-icons/io5"
 import "./PatientHome.css";
 import ApptTable from "../components/Navbar/PatientHome/ApptTable";
 const PatientHome = () => {
@@ -46,14 +47,14 @@ const PatientHome = () => {
             </div>
 
             <div className="ag-courses_item">
-              <a href="#" className="ag-courses-item_link">
+              <a href="http://localhost:5173/nutrient" className="ag-courses-item_link">
                 <div className="ag-courses-item_bg"></div>
 
                 <div className="ag-courses-item_title">
-                  <FaUserDoctor size={60} />
+                  <IoFastFoodSharp size={60} />
                   <br />
                   <br />
-                  Surgery
+                  Nutrient Tracker
                 </div>
               </a>
             </div>
