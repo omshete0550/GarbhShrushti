@@ -15,6 +15,7 @@ import Vaccine from "./pages/Vaccine/Vaccine";
 import Nutrient from "./pages/Nutrient/Nutrient";
 import Footer from "./components/Footer/Footer";
 import Landing from "./pages/Landing/Landing";
+import EmergencyOption from "./pages/Speciality/EmergencyOption";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -70,7 +71,7 @@ const router = createBrowserRouter([
               </>
   },
   {
-    path: "/book-appointment",
+    path: "/book-appointment/:doctorId",
     element: <>
               <Navbar/>
               <BookAppt />

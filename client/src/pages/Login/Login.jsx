@@ -55,7 +55,7 @@ const Login = () => {
         localStorage.setItem("userName",data.username)
         console.log(data);
         if(dChnage == 'Patient'){
-          navigate("/homepage");
+          navigate("/home");
         }
         else{
           

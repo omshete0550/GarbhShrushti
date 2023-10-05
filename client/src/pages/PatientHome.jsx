@@ -6,7 +6,7 @@ import {MdVaccines} from "react-icons/md"
 import {GiTalk} from "react-icons/gi"
 import {BsBookmarkCheckFill} from "react-icons/bs"
 import {IoFastFoodSharp} from "react-icons/io5"
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 // import {LuSyringe} from "react-icons/lu"
 // import {FaUserDoctor} from "react-icons/fa6"
 // import {AiFillMedicineBox} from "react-icons/ai"

@@ -405,10 +405,11 @@ export const LinePrimaryYAxis = {
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
 };
-function handleAccept(_id){
+async function handleAccept(_id){
   console.log(_id);
+  // console.log(patientNumber);
   console.log("this i sdummy")
-  const resp = fetch("http://localhost:8800/api/appointments/manageAppointments",{
+  const resp = await fetch("http://localhost:8800/api/appointments/manageAppointments",{
     method:"POST",
     headers:{
       'Content-Type': 'application/json'
@@ -417,9 +418,20 @@ function handleAccept(_id){
       _id,
       action:"accept"
     })
-  }).then((data)=>{window.location.reload();
-  });
+  }).then((data)=>{window.location.reload()});
+   
+  //   const response = await fetch("http://localhost:8800/accept-appointment",{
+  //   method:"POST",
+  //   headers:{
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body:JSON.stringify({
+  //     phone:patientNumber,
+  //     // action:"accept"
+  //   })
+  // });
 }
+
 
 // function handlePatientClick(id){
 //   navigate(`/SinglePatient/${id}`);

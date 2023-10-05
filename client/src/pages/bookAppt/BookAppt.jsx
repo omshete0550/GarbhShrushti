@@ -37,6 +37,17 @@ const BookAppt = () => {
       patientId: localStorage.getItem("userId"), // Replace with the actual patientId
       doctorId: doctorId, // You can use the doctorId from useParams
     };
+
+    const response = await fetch("http://localhost:8800/confirm-appointment",{
+      method:'POST',
+      headers:{
+        'Content-Type':"application/json"
+      },
+      body:JSON.stringify(updatedApptDetails)
+    });
+    const datas = await response.json();
+    console.log(datas);
+
     // Here, you can use the appointmentDetails object to send data to your API or perform any other actions.
     console.log("Appointment Details:", updatedApptDetails);
     const resp = await fetch("http://localhost:8800/api/appointments/create",{
@@ -125,7 +136,7 @@ const BookAppt = () => {
                     Phone Number{" "}
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     name="phone"
                     id="phone"
                     placeholder="Enter your phone number"

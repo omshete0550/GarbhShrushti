@@ -86,19 +86,20 @@ const twilioClient = new twilio(accountSid, authToken);
 app.use(bodyParser.json());
 
 app.post('/confirm-appointment', (req, res) => {
-  const { phoneNumber } = req.body;
+  console.log(req.body.phone);
+  const { phone } = req.body;
   twilioClient.messages
     .create({
       body: 'Your Appointment request has been received. We will get back to you soon.',
       from: 'whatsapp:+14155238886',
-      to: `whatsapp:${phoneNumber}`,
+      to: `whatsapp:+91${phone}`,
     })
     .then((message) => {
-      console.log(`Confirmation message sent to ${phoneNumber}`);
+      console.log(`Confirmation message sent to ${phone}`);
       res.sendStatus(200);
     })
     .catch((error) => {
-      console.error(`Error sending confirmation message to ${phoneNumber}:`, error);
+      console.error(`Error sending confirmation message to ${phone}:`, error);
       res.status(500).send('Error sending confirmation message');
     });
 });
