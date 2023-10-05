@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import PatientHome from './pages/PatientHome'
 import Navbar from '../src/components/Navbar/Navbar'
 // import ChooseAppCategory from './pages/ChooseAppCategory'
@@ -13,6 +12,7 @@ import Register from "./pages/Register/Register";
 import Speciality from './pages/Speciality/Speciality';
 import DoctorList from './pages/DoctorList/DoctorList';
 import BookAppt from './pages/bookAppt/bookAppt';
+
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -27,30 +27,33 @@ const router = createBrowserRouter([
     element: <Speciality />,
   },
   {
-    path:"/appointments",
+    path: "/appointments",
     element: <BookAppt />
   },
   {
-    path:"/hhhh",
-    element: <> <Navbar/>
-    <PatientHome />
-    {/* <Chat /> */}
+    path: "/hhhh",
+    element: <> <Navbar />
+      <PatientHome />
     </>
   },
   {
-        path:"/doctor-list/:variableName",
+    path: "/doctor-list/:variableName",
     element: <DoctorList />
   },
   {
-    path:"/book-appointment",
+    path: "/book-appointment",
     element: <BookAppt />
+  },
+  {
+    path: "/chat",
+    element: <Chat />
   }
 ]);
 
 function App() {
   return (
     <>
-     <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </>
   );
 }

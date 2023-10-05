@@ -56,7 +56,7 @@ export default function Register() {
               ref={password}
               className="loginInput"
               type="password"
-              minLength="6"
+              minLength="5"
             />
             <button className="loginButton" type="submit">
               Sign Up

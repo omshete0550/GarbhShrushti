@@ -40,6 +40,7 @@ app.use("/api/appointments", appointmentsRoute)
 app.post("/authenticate", async (req, res) => {
   const { username } = req.body;
   console.log(username)
+  console.log("hello")
   try {
     const r = await axios.put(
       "https://api.chatengine.io/users/",
