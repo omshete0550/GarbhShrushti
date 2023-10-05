@@ -49,6 +49,10 @@ const router = createBrowserRouter([
     path: "/book-appointment/:doctorId",
     element: <BookAppt />,
   },
+  {
+    path: "/chat",
+    element: <Chat />
+  }
 ]);
 
 function App() {

@@ -2,10 +2,12 @@ import React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import {BsChatLeftTextFill} from "react-icons/bs"
-import {IoMdNotifications} from "react-icons/io"
+import { BsChatLeftTextFill } from "react-icons/bs"
+import { IoMdNotifications } from "react-icons/io"
 import { SiShopware } from "react-icons/si";
 import "./Navbar.css";
+import { Link } from 'react-router-dom';
+
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -28,7 +30,6 @@ const Navbar = () => {
         <ul>
           <li>About</li>
           <li>Contact</li>
-          <li>Login</li>
           <li>
             <Button
               id="basic-button"
@@ -66,10 +67,12 @@ const Navbar = () => {
               </MenuItem>
             </Menu>
           </li>
-          <li style={{ color: "#1977cc" }}>
+          <li style={{ color: "#1977cc" }} >
             <i>
               {" "}
-              <BsChatLeftTextFill />
+              <Link to="/chat">
+                <BsChatLeftTextFill />
+              </Link>
             </i>
           </li>
         </ul>

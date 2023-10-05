@@ -5,6 +5,10 @@ const patientSchema = new mongoose.Schema({
         type: String,
         unique: true,
     },
+    email: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true,
@@ -30,13 +34,17 @@ const patientSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    email:{
+    email: {
         type: String
     },
     deliveryDone: {
         type: Boolean,
         default: false,
     },
+    children: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Child",
+    }],
 });
 
 export default mongoose.model("Patients", patientSchema);
