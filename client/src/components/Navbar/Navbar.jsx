@@ -2,11 +2,12 @@ import React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { Link } from "@mui/material";
 import { BsChatLeftTextFill } from "react-icons/bs";
 import { IoMdNotifications } from "react-icons/io";
 import { SiShopware } from "react-icons/si";
 import "./Navbar.css";
+import { Link } from 'react-router-dom';
+
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -24,7 +25,7 @@ const Navbar = () => {
           <i>
             <SiShopware />
           </i>
-          <h2>Meternity</h2>
+          <h2>GarbhShrushti</h2>
         </div>
         <ul>
           <li><a to="http://localhost:3001" style={{ textDecoration: 'none', color:"#1977cc" }}>Community</a></li>
@@ -68,10 +69,12 @@ const Navbar = () => {
               </MenuItem>
             </Menu>
           </li>
-          <li style={{ color: "#1977cc" }}>
+          <li style={{ color: "#1977cc" }} >
             <i>
               {" "}
-              <BsChatLeftTextFill />
+              <Link to="/chat">
+                <BsChatLeftTextFill />
+              </Link>
             </i>
           </li>
         </ul>

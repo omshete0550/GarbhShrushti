@@ -15,15 +15,15 @@ const Login = () => {
   const [UserName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [dChnage, setDChange] = useState("");
-  const [url,setUrl] = useState("");
+  const [url, setUrl] = useState("");
 
   const handleLogin = async () => {
     try {
       // const logUrl = (dChnage == "Patient") ? "http://localhost:8800/api/auth/patientLogin" : "http://localhost:8800/api/auth/doctorLogin";
-      if(dChnage === 'Patient'){
+      if (dChnage === 'Patient') {
         setUrl("http://localhost:8800/api/auth/patientLogin");
       }
-      else{
+      else {
         setUrl("http://localhost:8800/api/auth/doctorLogin");
       }
 
@@ -31,6 +31,7 @@ const Login = () => {
         username: UserName,
         password: password,
       };
+      localStorage.setItem("password", data.password);
       console.log(data);
       // if (dChnage === "Patient") {
       //   navigate("/college-dashboard");
@@ -46,21 +47,19 @@ const Login = () => {
         }
       );
       if (response.status === 200) {
-        // localStorage.setItem("userLoggedIn", response.data.username);
-        // localStorage.setItem("userId", response.data._id);
-        // localStorage.setItem("userLoggedInEmailID", response.data.email);
-        // navigate("/dashboard");
         const data = await response.json();
         localStorage.setItem("userId", data._id);
+
         localStorage.setItem("userName",data.username)
+        localStorage.setItem("email", data.email);
         console.log(data);
         if(dChnage == 'Patient'){
           navigate("/home");
         }
-        else{
-          
+        else {
+
         }
-       
+
       } else {
         console.log("Login Failed");
       }

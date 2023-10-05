@@ -14,11 +14,13 @@ import { useEffect } from 'react'
 // import {GiTalk} from "react-icons/gi"
 // import {BsBookmarkCheckFill} from "react-icons/bs"
 import "./PatientHome.css";
-// import ApptTable from "../components/Navbar/PatientHome/ApptTable";
-import ApptTable from '../components/Navbar/PatientHome/ApptTable'
+import ApptTable from "../components/Navbar/PatientHome/ApptTable";
+import Chatbot from "../pages/Chatbot/Chatbot";
+import { AiFillRobot } from "react-icons/ai";
 
 const PatientHome = () => {
-    const [appointments,setAppointments] = useState([]);
+  const [appointments, setAppointments] = useState([]);
+  const [isActive, setActive] = React.useState(false);
 
     useEffect(()=>{
         function getAppointments(){
@@ -66,12 +68,21 @@ const PatientHome = () => {
       description: 'Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....',
     },
   ]);
+  const userEmail = localStorage.getItem("email");
   function handleAppointment() {
     navigate("/speciality");
   }
   return (
-    <div className="PatientHomeContainer">
-      {/* <h1>Categories</h1> */}
+    <div>
+      {isActive && <Chatbot />}
+      <div className="chatbot" onClick={() => setActive(true)}>
+        <AiFillRobot />
+      </div>
+      {isActive && (
+        <div className="chatbotcross" onClick={() => setActive(false)}>
+          X
+        </div>
+      )}
       <div className="PatientPane">
         <div className="ag-format-container">
           <div className="ag-courses_box">
@@ -102,14 +113,18 @@ const PatientHome = () => {
             </div>
 
             <div className="ag-courses_item">
-              <a href="#" className="ag-courses-item_link">
+              <a
+                href="http://localhost:3001/"
+                target="blank"
+                className="ag-courses-item_link"
+              >
                 <div className="ag-courses-item_bg"></div>
 
                 <div className="ag-courses-item_title">
                   <AiFillMedicineBox size={60} />
                   <br />
                   <br />
-                  Medicine
+                  Community
                 </div>
               </a>
             </div>
@@ -165,7 +180,7 @@ const PatientHome = () => {
                 <h2> TASKS</h2>
               </div>
               <div className="timeList">
-                <h2>12:30 PM</h2>
+                <h2>14:50</h2>
               </div>
             </div>
             <div className="tasks">
@@ -190,10 +205,8 @@ const PatientHome = () => {
 
       <div className="UpcomingTable">
         <h2>Upcoming Appointments</h2>
-            <ApptTable data={appointments}/>
-        </div>
-        
-        
+        <ApptTable data={appointments} />
+      </div>
     </div>
   );
 };
