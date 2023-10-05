@@ -5,38 +5,34 @@ import { AiFillMedicineBox } from "react-icons/ai";
 import { MdVaccines } from "react-icons/md";
 import { GiTalk } from "react-icons/gi";
 import { BsBookmarkCheckFill } from "react-icons/bs";
-import { useEffect, useState } from 'react'
-// import {LuSyringe} from "react-icons/lu"
-// import {FaUserDoctor} from "react-icons/fa6"
-// import {AiFillMedicineBox} from "react-icons/ai"
-// import {MdVaccines} from "react-icons/md"
-// import {GiTalk} from "react-icons/gi"
-// import {BsBookmarkCheckFill} from "react-icons/bs"
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./PatientHome.css";
-// import ApptTable from "../components/Navbar/PatientHome/ApptTable";
-import ApptTable from '../components/Navbar/PatientHome/ApptTable'
+import ApptTable from "../components/Navbar/PatientHome/ApptTable";
 
 const PatientHome = () => {
-    const [appointments,setAppointments] = useState([]);
+  const [appointments, setAppointments] = useState([]);
 
-    useEffect(()=>{
-        function getAppointments(){
-            const patientName = localStorage.getItem("userName");   
-        const resp = fetch("http://localhost:8800/api/patients/applied",{
-            method:'POST',
-            headers:{
-                'Content-Type':"application/json"
-            },
-            body:JSON.stringify({
-                username:patientName
-              })
-        }).then((res)=>res.json()).then((data)=>{
-            console.log(data.appointments[0].doctorId);
-            setAppointments(data)
-        })
-        };
-        getAppointments();
-    },[])
+  useEffect(() => {
+    function getAppointments() {
+      const patientName = localStorage.getItem("userName");
+      const resp = fetch("http://localhost:8800/api/patients/applied", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: patientName,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data.appointments[0].doctorId);
+          setAppointments(data);
+        });
+    }
+    getAppointments();
+  }, []);
   const tasksData = [
     {
       id: 1,
@@ -99,7 +95,7 @@ const PatientHome = () => {
             </div>
 
             <div className="ag-courses_item">
-              <a href="#" className="ag-courses-item_link">
+              <Link to="/medicine" href="#" className="ag-courses-item_link">
                 <div className="ag-courses-item_bg"></div>
 
                 <div className="ag-courses-item_title">
@@ -108,11 +104,11 @@ const PatientHome = () => {
                   <br />
                   Medicine
                 </div>
-              </a>
+              </Link>
             </div>
 
             <div className="ag-courses_item">
-              <a href="#" className="ag-courses-item_link">
+              <Link to="/vaccine" className="ag-courses-item_link">
                 <div className="ag-courses-item_bg"></div>
 
                 <div className="ag-courses-item_title">
@@ -121,11 +117,11 @@ const PatientHome = () => {
                   <br />
                   Vaccinations
                 </div>
-              </a>
+              </Link>
             </div>
 
             <div className="ag-courses_item">
-              <a href="#" className="ag-courses-item_link">
+              <Link to="/" className="ag-courses-item_link">
                 <div className="ag-courses-item_bg"></div>
 
                 <div className="ag-courses-item_title">
@@ -134,14 +130,11 @@ const PatientHome = () => {
                   <br />
                   Emergency Consult
                 </div>
-              </a>
+              </Link>
             </div>
 
             <div onClick={handleAppointment} className="ag-courses_item">
-              <a
-                href="http://localhost:5173/speciality"
-                className="ag-courses-item_link"
-              >
+              <Link to="/speciality" className="ag-courses-item_link">
                 <div className="ag-courses-item_bg"></div>
 
                 <div className="ag-courses-item_title">
@@ -150,7 +143,7 @@ const PatientHome = () => {
                   <br />
                   Book Appointment
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -186,10 +179,8 @@ const PatientHome = () => {
 
       <div className="UpcomingTable">
         <h2>Upcoming Appointments</h2>
-            <ApptTable data={appointments}/>
-        </div>
-        
-        
+        <ApptTable data={appointments} />
+      </div>
     </div>
   );
 };

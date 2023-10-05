@@ -24,7 +24,7 @@ const Navbar = () => {
           <i>
             <SiShopware />
           </i>
-          <h2>Meternity</h2>
+          <h2>GarbhShrushti</h2>
         </div>
         <ul>
           <li><Link to="/home" style={{ textDecoration: 'none' }}>Home</Link></li>

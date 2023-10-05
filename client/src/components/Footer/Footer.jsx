@@ -10,7 +10,7 @@ const Footer = () => {
             <h3>Health</h3>
             <a href="#">Book Medicine</a>
             <a href="#">Doctor Consultation</a>
-            <a href="#">Meternity Gold</a>
+            <a href="#">GarbhShrushti Gold</a>
             <a href="#">Dental</a>
           </section>
           <section className="flex-content padding_1x">
@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
         <div className="flex">
           <section className="flex-content padding_1x">
-            <p>Copyright ©2023 All rights reserved || Meternity</p>
+            <p>Copyright ©2023 All rights reserved || GarbhShrushti</p>
           </section>
           {/* <section className="flex-content padding_1x">
             <a href="#">
