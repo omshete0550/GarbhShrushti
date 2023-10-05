@@ -117,6 +117,9 @@ export default function BasicTabs(props) {
                         <strong>{doctor.totalExpense}/-</strong>
                       </h2>
                     </div>
+                    <div className="ratingTab">
+                      <Link to='/home'>56 Ratings</Link>
+                    </div>
                     <ul className="postcard__tagbox">
                       <Link to={`/book-appointment/${doctor._id}`}>
                         <li className="tag__item">

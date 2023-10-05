@@ -1,18 +1,17 @@
-import { useState } from 'react'
-import PatientHome from './pages/PatientHome'
-import Navbar from '../src/components/Navbar/Navbar'
+import { useState } from "react";
+import PatientHome from "./pages/PatientHome";
+import Navbar from "../src/components/Navbar/Navbar";
 // import ChooseAppCategory from './pages/ChooseAppCategory'
-import Chat from './pages/ChatInterface/chat'
+import Chat from "./pages/ChatInterface/chat";
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import Speciality from './pages/Speciality/Speciality';
-import DoctorList from './pages/DoctorList/DoctorList';
-import BookAppt from './pages/bookAppt/bookAppt';
+import Speciality from "./pages/Speciality/Speciality";
+import DoctorList from "./pages/DoctorList/DoctorList";
+import BookAppt from "./pages/bookAppt/bookAppt";
+import Labs from "./pages/Labs/LAbs";
+import LabTests from "./pages/LabTests/LabTests";
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -27,30 +26,36 @@ const router = createBrowserRouter([
     element: <Speciality />,
   },
   {
-    path:"/appointments",
-    element: <BookAppt />
+    path: "/appointments",
+    element: <BookAppt />,
   },
   {
-    path:"/homepage",
-    element: <> <Navbar/>
-    <PatientHome />
-    {/* <Chat /> */}
-    </>
+    path: "/medicine",
+    element: <Labs />,
   },
   {
-        path:"/doctor-list/:variableName",
-    element: <DoctorList />
+    path: "/lab-tests",
+    element: <LabTests />,
   },
   {
-    path:"/book-appointment/:doctorId",
-    element: <BookAppt />
-  }
+    path: "/homepage",
+    element: <PatientHome />,
+  },
+  {
+    path: "/doctor-list/:variableName",
+    element: <DoctorList />,
+  },
+  {
+    path: "/book-appointment/:doctorId",
+    element: <BookAppt />,
+  },
 ]);
 
 function App() {
   return (
     <>
-     <RouterProvider router={router} />
+    <Navbar />
+      <RouterProvider router={router} />
     </>
   );
 }
