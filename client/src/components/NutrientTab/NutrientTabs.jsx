@@ -35,7 +35,7 @@ export default function NutrientTabs(props) {
         <TabPanel value="1">
           <div>
             <div className="TrimesterTitle">
-              <h3>North Indian Nutrition Diet:</h3>
+              {/* <h3>North Indian Nutrition Diet:</h3> */}
             </div>
             <div className="TrimesterDesc">
               <p>
@@ -77,7 +77,7 @@ export default function NutrientTabs(props) {
         <TabPanel value="2">
         <div>
             <div className="TrimesterTitle">
-              <h3>South Indian Nutrition Diet:</h3>
+              {/* <h3>South Indian Nutrition Diet:</h3> */}
             </div>
             <div className="TrimesterDesc">
               <p>
@@ -150,7 +150,7 @@ export default function NutrientTabs(props) {
         <TabPanel value="1">
           <div>
             <div className="TrimesterTitle">
-              <h3>North Indian Nutrition Diet:</h3>
+              {/* <h3>North Indian Nutrition Diet:</h3> */}
             </div>
             <div className="TrimesterDesc">
               <p>
@@ -192,7 +192,7 @@ export default function NutrientTabs(props) {
         <TabPanel value="2">
         <div>
             <div className="TrimesterTitle">
-              <h3>South Indian Nutrition Diet:</h3>
+              {/* <h3>South Indian Nutrition Diet:</h3> */}
             </div>
             <div className="TrimesterDesc">
               <p>

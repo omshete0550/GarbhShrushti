@@ -1,0 +1,8 @@
+.iconVideo {
+    position: absolute;
+    top: 125px;
+    right: 125px;
+    color: white;
+    font-size: 20px;
+    z-index: 100;
+}

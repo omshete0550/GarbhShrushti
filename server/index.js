@@ -89,13 +89,13 @@ const twilioClient = new twilio(accountSid, authToken);
 app.use(bodyParser.json());
 
 app.post('/confirm-appointment', (req, res) => {
-  console.log(req.body.phone);
-  const { phone } = req.body;
+  console.log(req.body);
+  const { phone } = req.body.phone;
   twilioClient.messages
     .create({
       body: 'Your Appointment request has been received. We will get back to you soon.',
       from: 'whatsapp:+14155238886',
-      to: `whatsapp:+91${phone}`,
+      to: `whatsapp:+917718099523`,
     })
     .then((message) => {
       console.log(`Confirmation message sent to ${phone}`);
@@ -166,7 +166,7 @@ app.post('/emergency-contact', (req, res) => {
   // Send the emergency contact message to the doctor
   twilioClient.messages
     .create({
-      body: `Emergency, Kindly Contact the ${name} immediately`,
+      body: `Emergency, Kindly Contact the patient '${name}' immediately`,
       from: 'whatsapp:+14155238886',
       to: doctorWhatsAppNumber,
     })
