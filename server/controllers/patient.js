@@ -1,5 +1,7 @@
 import Patient from "../models/Patient.js";
 import Appointments from "../models/Appointment.js";
+import Doctors from "../models/Doctor.js"
+import Doctor from "../models/Doctor.js";
 
 export const updatePatient = async (req, res, next) => {
     try {
@@ -39,14 +41,23 @@ export const getPatients = async (req, res, next) => {
 }
 export const getPatientPrevAppointments = async (req, res) => {
     try {
-        const patient = await Patient.findOne({ username: req.params.patientname });
-        let appointments = ""
-        appointments = await Appointments.find({ patientId: patient._id });
-        res.status(200).json(appointments);
+      const patient = await Patient.findOne({ username: req.body.username });
+      const appointments = await Appointments.find({ patientId: patient._id });
+  
+      const doctors = [];
+  
+      for (const appointment of appointments) {
+        const doctor = await Doctor.findById(appointment.doctorId);
+        doctors.push(doctor);
+      }
+  
+      res.status(200).json({doctors,appointments});
     } catch (err) {
-        res.status(500).json(err);
+      res.status(500).json(err);
     }
-};
+  };
+  
+  
 export const getPatientReqAppointments = async (req, res) => {
     try {
         const patient = await Patient.findOne({ _id: req.body.patientId });

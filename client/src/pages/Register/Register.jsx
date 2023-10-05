@@ -16,6 +16,7 @@ const Register = () => {
   const [data,setData] = useState({});
   const [hospital,setHospital] = useState("");
   const [dChnage, setDChange] = useState("");
+  const [speciality,setSpeciality] = useState("");
   const [url,setUrl] = useState("")
   // const [stage,setStage] = useState(0)
   // const [userInfo,setUserInfo] = useState({});
@@ -30,6 +31,7 @@ const Register = () => {
         console.log("in doctor")
         setUrl("http://localhost:8800/api/auth/doctorRegister");
       }
+      console.log(url);
       // Create a data object with user input
       const userData = {
         email,
@@ -41,11 +43,12 @@ const Register = () => {
       };
     if(dChnage === "Doctor"){
        userData.hospital = hospital;
+       userData.speciality = speciality;
     }
     else{
       userData.monthOfPregnancy = monthOfPregnancy;
     }
-      console.log(data);
+      console.log(userData);
       // Make a POST request to the API
       const response = await fetch(url,{
         method:"POST",
@@ -56,7 +59,7 @@ const Register = () => {
       })
       console.log(response);
       // Handle the response, e.g., redirect to a dashboard on success
-      if (response.status === 201) {
+      if (response.status == 201) {
         const data = await response.json();
         // localStorage.setItem("userRegged", response.data);
         console.log(data);
@@ -67,7 +70,7 @@ const Register = () => {
         // You can use React Router to navigate to another page
         // Example: history.push("/dashboard");
       } else {
-        console.log(response)
+        console.log(response.json())
       }
     } catch (error) {
       // Handle errors, e.g., network issues, server errors
@@ -175,6 +178,15 @@ const Register = () => {
                   type="text"
                   id="hospital"
                   onChange={(e) => setHospital(e.target.value)}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="speciality">Speciality</label>
+                <input
+                  type="text"
+                  id="hospital"
+                  onChange={(e) => setSpeciality(e.target.value)}
                 />
               </div>
               </>}

@@ -14,8 +14,12 @@ import Trimester from "./pages/Trimester/Trimester";
 import Vaccine from "./pages/Vaccine/Vaccine";
 import Nutrient from "./pages/Nutrient/Nutrient";
 import Footer from "./components/Footer/Footer";
-import EmergencyOption from "./pages/Speciality/EmergencyOption";
+import Landing from "./pages/Landing/Landing";
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Landing />,
+  },
   {
     path: "/login",
     element:<>

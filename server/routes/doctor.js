@@ -1,5 +1,5 @@
 import express from "express";
-import { deleteDoctor, getDoctor, getDoctors, updateDoctor } from "../controllers/Doctor.js";
+import { deleteDoctor, getDoctor, getDoctorPrevAppointments, getDoctors, updateDoctor } from "../controllers/Doctor.js";
 const router = express.Router()
 
 //update
@@ -10,5 +10,6 @@ router.delete("/:id", deleteDoctor)
 router.get("/:id", getDoctor)
 //get all
 router.get("/", getDoctors)
+router.post("/applied",getDoctorPrevAppointments);
 
 export default router
