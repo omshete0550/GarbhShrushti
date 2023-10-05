@@ -5,15 +5,15 @@ import { AiFillMedicineBox } from "react-icons/ai";
 import { MdVaccines } from "react-icons/md";
 import { GiTalk } from "react-icons/gi";
 import { BsBookmarkCheckFill } from "react-icons/bs";
-import React, { useEffect, useState } from 'react'
-import {LuSyringe} from "react-icons/lu"
-import {FaUserDoctor} from "react-icons/fa6"
-import {AiFillMedicineBox} from "react-icons/ai"
-import {MdVaccines} from "react-icons/md"
-import {GiTalk} from "react-icons/gi"
-import {BsBookmarkCheckFill} from "react-icons/bs"
+import { useEffect, useState } from 'react'
+// import {LuSyringe} from "react-icons/lu"
+// import {FaUserDoctor} from "react-icons/fa6"
+// import {AiFillMedicineBox} from "react-icons/ai"
+// import {MdVaccines} from "react-icons/md"
+// import {GiTalk} from "react-icons/gi"
+// import {BsBookmarkCheckFill} from "react-icons/bs"
 import "./PatientHome.css";
-import ApptTable from "../components/Navbar/PatientHome/ApptTable";
+// import ApptTable from "../components/Navbar/PatientHome/ApptTable";
 import ApptTable from '../components/Navbar/PatientHome/ApptTable'
 
 const PatientHome = () => {
