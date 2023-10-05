@@ -5,6 +5,7 @@ import authRoute from "./routes/auth.js"
 import patientsRoute from "./routes/patients.js"
 import childsRoute from "./routes/child.js"
 import doctorsRoute from "./routes/doctor.js"
+import tasksRoute from "./routes/task.js"
 import appointmentsRoute from "./routes/appointment.js"
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -35,11 +36,13 @@ app.use(express.json())
 app.use("/api/auth", authRoute)
 app.use("/api/patients", patientsRoute)
 app.use("/api/childs", childsRoute)
+app.use("/api/tasks", tasksRoute)
 app.use("/api/doctors", doctorsRoute)
 app.use("/api/appointments", appointmentsRoute)
 app.post("/authenticate", async (req, res) => {
   const { username } = req.body;
   console.log(username)
+  console.log("hello")
   try {
     const r = await axios.put(
       "https://api.chatengine.io/users/",

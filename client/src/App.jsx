@@ -1,74 +1,37 @@
 import { useState } from "react";
 import PatientHome from "./pages/PatientHome";
 import Navbar from "../src/components/Navbar/Navbar";
-// import ChooseAppCategory from './pages/ChooseAppCategory'
 import Chat from "./pages/ChatInterface/chat";
-
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Speciality from "./pages/Speciality/Speciality";
 import DoctorList from "./pages/DoctorList/DoctorList";
 import BookAppt from "./pages/bookAppt/bookAppt";
-import Trimester from "./pages/Trimester/Trimester";
-import Vaccine from "./pages/Vaccine/Vaccine";
-import Nutrient from "./pages/Nutrient/Nutrient";
-import Footer from "./components/Footer/Footer";
-import Landing from "./pages/Landing/Landing";
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Landing />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/speciality",
-    element: <Speciality />,
-  },
-  {
-    path: "/appointments",
-    element: <BookAppt />,
-  },
-  {
-    path: "/home",
-    element: <PatientHome />,
-  },
-  {
-    path: "/doctor-list/:variableName",
-    element: <DoctorList />,
-  },
-  {
-    path: "/book-appointment",
-    element: <BookAppt />,
-  },
-  {
-    path: "/trimester",
-    element: <Trimester />,
-  },
-  {
-    path: "/vaccine",
-    element: <Vaccine />,
-  },
-  {
-    path: "/nutrient",
-    element: <Nutrient />,
-  },
-]);
+import Labs from "./pages/Labs/LAbs";
+import LabTests from "./pages/LabTests/LabTests";
+import Landing from '../../client/src/pages/Landing/Landing'
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <RouterProvider router={router} />
-      <Footer />
-    </>
+    <Router>
+      <>
+        <Navbar />
+        <Routes>
+        <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/speciality" element={<Speciality />} />
+          <Route path="/appointments" element={<BookAppt />} />
+          <Route path="/medicine" element={<Labs />} />
+          <Route path="/lab-tests" element={<LabTests />} />
+          <Route path="/homepage" element={<PatientHome />} />
+          <Route path="/doctor-list/:variableName" element={<DoctorList />} />
+          <Route path="/book-appointment/:doctorId" element={<BookAppt />} />
+          <Route path="/chat" element={<Chat />} />
+        </Routes>
+      </>
+    </Router>
   );
 }
 

@@ -3,7 +3,7 @@ import ChatUser from '../../components/Chat/chatUser'
 const chat = () => {
   return (
     <div>
-      <ChatUser/>
+      <ChatUser />
     </div>
   )
 }
