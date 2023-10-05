@@ -404,31 +404,53 @@ export const LinePrimaryYAxis = {
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
 };
+function handleAccept(_id){
+  console.log(_id);
+  console.log("this i sdummy")
+  const resp = fetch("http://localhost:8800/api/appointments/manageAppointments",{
+    method:"POST",
+    headers:{
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify({
+      _id,
+      action:"accept"
+    })
+  }).then((data)=>{window.location.reload();
+  });
+}
 
+function handleDelete(_id){
+  console.log(_id);
+  console.log("this i sdummy")
+  const resp = fetch("http://localhost:8800/api/appointments/manageAppointments",{
+    method:"POST",
+    headers:{
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify({
+      _id,
+      action:"delete"
+    })
+  }).then((data)=>{window.location.reload();
+  });
+}
 export const customersGrid = [
-  { type: 'checkbox', width: '50' },
-  {
-    headerText: 'Name',
-    width: '150',
-    template: customerGridImage,
-    textAlign: 'Center'
-  },
-  {
-    field: 'ProjectName',
-    headerText: 'Stage',
-    width: '150',
-    textAlign: 'Center'
-  },
+  // { type: 'checkbox', width: '50' },
   // {
-  //   field: 'Status',
-  //   headerText: 'Status',
-  //   width: '130',
-  //   format: 'yMd',
-  //   textAlign: 'Center',
-  //   template: customerGridStatus
+  //   headerText: 'Name',
+  //   width: '150',
+  //   template: customerGridImage,
+  //   textAlign: 'Center'
   // },
   {
-    field: 'Weeks',
+    field: 'description',
+    headerText: 'Description',
+    width: '150',
+    textAlign: 'Center'
+  },
+  {
+    field: 'date',
     headerText: 'Date',
     width: '100',
     format: 'C2',
@@ -439,25 +461,17 @@ export const customersGrid = [
     headerText: 'Accept',
     width: 150,
     // textAlign: 'Center',
-    template: () => <img src="https://cdn-icons-png.flaticon.com/512/5289/5289675.png" width={30} height={30} />,
+    template: (rowData) => <img src="https://cdn-icons-png.flaticon.com/512/5289/5289675.png" onClick={()=>handleAccept(rowData._id)} width={30} height={30} />,
   },
   {
     field: 'Continued',
     headerText: 'Deny',
     width: 150,
     // textAlign: 'Center',
-    template: () => <img src="https://png.pngtree.com/png-vector/20221215/ourmid/pngtree-wrong-icon-png-image_6525689.png" width={30} height={30} />,
+    template: (rowData) => <img src="https://png.pngtree.com/png-vector/20221215/ourmid/pngtree-wrong-icon-png-image_6525689.png" onClick={()=>handleDelete(rowData._id)} width={30} height={30} />,
   },
-
-  // {
-  //   field: 'Location',
-  //   headerText: 'Location',
-  //   width: '150',
-  //   textAlign: 'Center'
-  // },
-
   {
-    field: 'CustomerID',
+    field: 'patientId',
     headerText: 'Patient ID',
     width: '120',
     textAlign: 'Center',
@@ -976,36 +990,36 @@ export const ordersGrid = [
   //   width: '120',
   // },
   {
-    field: 'OrderItems',
-    headerText: 'Fever',
+    field: 'description',
+    headerText: 'Description',
     width: '150',
     editType: 'dropdownedit',
     textAlign: 'Center',
   },
   {
-    field: 'CustomerName',
-    headerText: 'Patient Name',
+    field: 'patientId',
+    headerText: 'Patient ID',
     width: '150',
     textAlign: 'Center',
   },
   {
-    field: 'TotalAmount',
-    headerText: 'Total Amount',
+    field: 'date',
+    headerText: 'Date',
     format: 'C2',
     textAlign: 'Center',
     editType: 'numericedit',
     width: '150',
   },
+  // {
+  //   headerText: 'Status',
+  //   template: gridOrderStatus,
+  //   field: 'status',
+  //   textAlign: 'Center',
+  //   width: '120',
+  // },
   {
-    headerText: 'Status',
-    template: gridOrderStatus,
-    field: 'OrderItems',
-    textAlign: 'Center',
-    width: '120',
-  },
-  {
-    field: 'OrderID',
-    headerText: 'Pateint ID',
+    field: 'date',
+    headerText: 'Date',
     width: '120',
     textAlign: 'Center',
   },

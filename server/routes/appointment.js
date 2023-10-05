@@ -1,5 +1,5 @@
 import express from "express";
-import { createAppointment, deleteAppointment, getAppointment, getAppointments, getAppointmentsbyUser, updateAppointment } from "../controllers/appointment.js";
+import { createAppointment, deleteAppointment, getAppointment, getAppointments, getAppointmentsbyUser, manageAppointments, updateAppointment } from "../controllers/appointment.js";
 const router = express.Router()
 
 //update
@@ -13,5 +13,6 @@ router.get("/", getAppointments)
 //create appointment
 router.post("/create",createAppointment)
 router.post("/getAppointmentsByUser",getAppointmentsbyUser)
+router.post("/manageAppointments",manageAppointments)
 
 export default router

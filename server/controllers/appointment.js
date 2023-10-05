@@ -69,3 +69,33 @@ export const getAppointmentsbyUser = async (req, res, next) => {
         next(err);
     }
 };
+
+export const manageAppointments = async (req, res, next) => {
+    const {_id,action} = req.body;
+    console.log(_id);
+    try{
+        if(action === 'accept'){
+            const UpdatedAppointment = await Appointment.findByIdAndUpdate(
+                _id,
+                { status: 'accepted' }, // Update the status to 'accepted'
+                { new: true }
+            );
+        }
+        else{
+            const UpdatedAppointment = await Appointment.findByIdAndUpdate(
+                _id,
+                { status: 'rejected' }, // Update the status to 'accepted'
+                { new: true }
+            );
+        }
+       
+        if (!UpdatedAppointment) {
+            return res.status(404).json({ message: 'Appointment not found' });
+        }
+        res.status(200).json(UpdatedAppointment);
+
+    }
+    catch(err){
+        next(err);
+    }
+}
