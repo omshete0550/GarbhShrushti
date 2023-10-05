@@ -8,103 +8,30 @@ import Register from "./pages/Register/Register";
 import Speciality from "./pages/Speciality/Speciality";
 import DoctorList from "./pages/DoctorList/DoctorList";
 import BookAppt from "./pages/bookAppt/bookAppt";
-import Trimester from "./pages/Trimester/Trimester";
-import Vaccine from "./pages/Vaccine/Vaccine";
-import Nutrient from "./pages/Nutrient/Nutrient";
-import Footer from "./components/Footer/Footer";
-import Landing from "./pages/Landing/Landing";
-import EmergencyOption from "./pages/Speciality/EmergencyOption";
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Landing />,
-  },
-  {
-    path: "/login",
-    element:<>
-      <Login />,
-    </> 
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/speciality",
-    element: 
-    <>
-      <Navbar/>
-      <Speciality />
-    </>
-  },
-  {
-    path: "/emergencyChoose",
-    element: 
-    <>
-      <Navbar/>
-      <EmergencyOption />
-    </>
-  },
-  {
-    path:"/appointments",
-    element: 
-    <>
-    <Navbar/>
-      <BookAppt />
-    </>
-    
-  },
-  {
-    path: "/home",
-    element:<>
-              <Navbar/>
-              <PatientHome />
-            </> 
-  },
-  {
-    path: "/doctor-list/:variableName",
-    element: <>
-              <Navbar/>
-              <DoctorList />
-              </>
-  },
-  {
-    path: "/book-appointment/:doctorId",
-    element: <>
-              <Navbar/>
-              <BookAppt />
-              </>
-  },
-  {
-    path: "/trimester",
-    element: <>
-              <Navbar/>
-              <Trimester />
-              </>
-  },
-  {
-    path: "/vaccine",
-    element: <>
-              <Navbar/>
-              <Vaccine />
-              </>
-  },
-  {
-    path: "/nutrient",
-    element: 
-    <>
-    <Navbar/>
-    <Nutrient />,
-    </>
-  },
-]);
+import Labs from "./pages/Labs/LAbs";
+import LabTests from "./pages/LabTests/LabTests";
+import Nutrient from "./pages/ Nutrient/nutrient";
 
 function App() {
   return (
-    <>
-    {/* <Navbar /> */}
-     <RouterProvider router={router} />
-    </>
+    <Router>
+      <>
+        <Navbar />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/speciality" element={<Speciality />} />
+          <Route path="/appointments" element={<BookAppt />} />
+          <Route path="/medicine" element={<Labs />} />
+          <Route path="/lab-tests" element={<LabTests />} />
+          <Route path="/home" element={<PatientHome />} />
+          <Route path="/doctor-list/:variableName" element={<DoctorList />} />
+          <Route path="/book-appointment/:doctorId" element={<BookAppt />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/nutrient" element={<Nutrient/>}
+        </Routes>
+      </>
+    </Router>
   );
 }
 

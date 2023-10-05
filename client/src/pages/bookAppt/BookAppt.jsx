@@ -134,7 +134,6 @@ const BookAppt = () => {
             </section>
           </div>
         </div>
-<<<<<<< HEAD
       </div>
       <div className="hi">
         <div>
@@ -156,28 +155,6 @@ const BookAppt = () => {
           onChange={handleInputChange}
                   />
                 </div>
-=======
-        <div className="hi">
-          <div>
-            <div className="formbold-main-wrapper">
-              <div className="formbold-form-wrapper">
-                <form action="https://formbold.com/s/FORM_ID" method="POST">
-                  <div className="formbold-mb-5">
-                    <label for="phone" className="formbold-form-label">
-                      {" "}
-                      Phone Number{" "}
-                    </label>
-                    <input
-                      type="text"
-                      name="phone"
-                      id="phone"
-                      placeholder="Enter your phone number"
-                      className="formbold-form-input"
-                      value={appointmentDetails.patientNumber}
-                      onChange={handleInputChange}
-                    />
-                  </div>
->>>>>>> 7b4fcc3d82d99cbec0504ed15a15259c189c5021
 
                   <div className="formbold-mb-5">
                     <label for="description" className="formbold-form-label">
@@ -261,7 +238,7 @@ const BookAppt = () => {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
       <div className="reviewDoc">
         <Review />
       </div>

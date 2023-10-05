@@ -111,7 +111,7 @@ const Login = () => {
 
             <div style={{ width: "31em", marginBottom: "2em" }}>
               <select
-                style={{ width: "41em", padding: "10px 20px" }}
+                style={{ width: "37em", padding: "10px 20px" }}
                 id="interestedService"
                 value={dChnage}
                 onChange={(e) => setDChange(e.target.value)}
