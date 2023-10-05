@@ -2,11 +2,7 @@ import { useState } from "react";
 import PatientHome from "./pages/PatientHome";
 import Navbar from "../src/components/Navbar/Navbar";
 import Chat from "./pages/ChatInterface/chat";
-<<<<<<< HEAD
-import { BrowserRouter, createBrowserRouter, RouterProvider } from "react-router-dom";
-=======
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
->>>>>>> c132bcb2f27697e11e2dd4f2e2ae0fea1c287798
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Speciality from "./pages/Speciality/Speciality";
