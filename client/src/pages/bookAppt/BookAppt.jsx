@@ -49,6 +49,7 @@ const BookAppt = () => {
     });
     const data = await resp.json();
     console.log(data);
+    
   };
 
   useEffect(() => {
