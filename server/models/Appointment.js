@@ -11,14 +11,16 @@ const appointmentSchema = new mongoose.Schema({
         ref: 'Patient',
         required: true,
     },
+    date: {
+        type: Date,
+        // required:true
+    },
     childId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Child',
     },
-    appointmentDate: {
-        type: Date,
-    },
-    appointmentTime: {
+    
+    time: {
         type: String,
     },
     description: {
@@ -37,7 +39,10 @@ const appointmentSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Task',
         }
-    ]
+    ],
+    patientNumber:{
+        type:String
+    }
 });
 
 export default mongoose.model("Appointments", appointmentSchema);

@@ -49,10 +49,15 @@ const Login = () => {
       if (response.status === 200) {
         const data = await response.json();
         localStorage.setItem("userId", data._id);
-        localStorage.setItem("userName", data.name);
+
+        localStorage.setItem("userName",data.username)
         localStorage.setItem("email", data.email);
-        if (dChnage == 'Patient') {
-          navigate("/hhhh");
+        console.log(data);
+        if(dChnage == 'Patient'){
+          navigate("/homepage");
+
+
+
         }
         else {
 

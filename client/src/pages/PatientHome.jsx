@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { LuSyringe } from "react-icons/lu"
 import { FaUserDoctor } from "react-icons/fa6"
 import { AiFillMedicineBox } from "react-icons/ai"
@@ -11,7 +11,27 @@ import Chatbot from "../pages/Chatbot/Chatbot"
 import { AiFillRobot } from "react-icons/ai"
 
 const PatientHome = () => {
+    const [appointments, setAppointments] = useState([]);
     const [isActive, setActive] = React.useState(false);
+
+    useEffect(() => {
+        function getAppointments() {
+            const patientName = localStorage.getItem("userName");
+            const resp = fetch("http://localhost:8800/api/patients/applied", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': "application/json"
+                },
+                body: JSON.stringify({
+                    username: patientName
+                })
+            }).then((res) => res.json()).then((data) => {
+                console.log(data.appointments[0].doctorId);
+                setAppointments(data)
+            })
+        };
+        getAppointments();
+    }, [])
     const tasksData = [
         {
             id: 1,

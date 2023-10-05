@@ -1,18 +1,17 @@
-import PatientHome from './pages/PatientHome'
-import Navbar from '../src/components/Navbar/Navbar'
+import { useState } from "react";
+import PatientHome from "./pages/PatientHome";
+import Navbar from "../src/components/Navbar/Navbar";
 // import ChooseAppCategory from './pages/ChooseAppCategory'
-import Chat from './pages/ChatInterface/chat'
+import Chat from "./pages/ChatInterface/chat";
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import Speciality from './pages/Speciality/Speciality';
-import DoctorList from './pages/DoctorList/DoctorList';
-import BookAppt from './pages/bookAppt/bookAppt';
-
+import Speciality from "./pages/Speciality/Speciality";
+import DoctorList from "./pages/DoctorList/DoctorList";
+import BookAppt from "./pages/bookAppt/bookAppt";
+import Labs from "./pages/Labs/LAbs";
+import LabTests from "./pages/LabTests/LabTests";
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -28,21 +27,27 @@ const router = createBrowserRouter([
   },
   {
     path: "/appointments",
-    element: <BookAppt />
+    element: <BookAppt />,
   },
   {
-    path: "/hhhh",
-    element: <> <Navbar />
-      <PatientHome />
-    </>
+    path: "/medicine",
+    element: <Labs />,
+  },
+  {
+    path: "/lab-tests",
+    element: <LabTests />,
+  },
+  {
+    path: "/homepage",
+    element: <PatientHome />,
   },
   {
     path: "/doctor-list/:variableName",
-    element: <DoctorList />
+    element: <DoctorList />,
   },
   {
-    path: "/book-appointment",
-    element: <BookAppt />
+    path: "/book-appointment/:doctorId",
+    element: <BookAppt />,
   },
   {
     path: "/chat",
@@ -53,6 +58,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+    <Navbar />
       <RouterProvider router={router} />
     </>
   );

@@ -9,11 +9,8 @@ import { FaLocationArrow } from "react-icons/fa";
 import { doctData } from "../../data/data";
 import { Link } from "react-router-dom";
 function CustomTabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  const specialties = Array.from(
-    new Set(doctData.map((doctor) => doctor.specialty))
-  );
+  const { children,value, index, ...other } = props;
+  const specialties = ["General","OBGY"]
 
   return (
     <div
@@ -45,14 +42,16 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
+export default function BasicTabs(props) {
+  const {doctorData} = props;
+  console.log(doctorData)
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const specialties = ["General Physician", "Pediatrician", "Obstetrician"];
+  const specialties = ["General","OBGY"];
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -73,7 +72,7 @@ export default function BasicTabs() {
           <Tab label="Nutritionist" {...a11yProps(8)} />
         </Tabs>
       </Box>
-      {doctData.map((doctor, index) => (
+      {doctorData.map((doctor, index) => (
         <CustomTabPanel key={index} value={value} index={index}>
           <section className="light">
             <div className="container py-2">
@@ -81,12 +80,12 @@ export default function BasicTabs() {
                 <a className="postcard__img_link" href="#">
                   <img
                     className="postcard__img"
-                    src={doctor.image}
+                    src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
                     alt="Image Title"
                   />
                 </a>
                 <div className="postcard__text t-dark">
-                  <span className="typeDoct">{doctor.specialty}</span>
+                  <span className="typeDoct">{doctor.speciality}</span>
                   <h1 className="postcard__title blue">
                     <a href="#">{doctor.name}</a>
                   </h1>
@@ -95,7 +94,7 @@ export default function BasicTabs() {
                       <i className="fas fa-calendar-alt mr-2"></i>
                       {doctor.education}
                       <br />
-                      {doctor.experience} | {doctor.language}
+                      {doctor.location} | {doctor.email}
                     </time>
                   </div>
                   <div className="postcard__bar"></div>
@@ -115,11 +114,14 @@ export default function BasicTabs() {
                     <div className="doctorfees">
                       <span>Consultation fees</span>
                       <h2>
-                        <strong>{doctor.consultationFees}</strong>
+                        <strong>{doctor.totalExpense}/-</strong>
                       </h2>
                     </div>
+                    <div className="ratingTab">
+                      <Link to='/home'>56 Ratings</Link>
+                    </div>
                     <ul className="postcard__tagbox">
-                      <Link to='/book-appointment'>
+                      <Link to={`/book-appointment/${doctor._id}`}>
                         <li className="tag__item">
                           <i className="fas fa-tag mr-2"></i>Book Appointment
                         </li>
