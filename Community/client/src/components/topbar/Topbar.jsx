@@ -16,7 +16,7 @@ export default function Topbar() {
     <div className="topbarContainer">
       <div className="topbarLeft">
         <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo" onClick={handleLogout}>PegaTrack</span>
+          <span className="logo" onClick={handleLogout}>Garbhshrushti</span>
         </Link>
       </div>
       <div className="topbarCenter">

@@ -166,7 +166,7 @@ const PatientHome = () => {
 
             <div className="UpcomingTable">
                 <h2>Upcoming Appointments</h2>
-                <ApptTable />
+                <ApptTable data={appointments} />
             </div>
 
 

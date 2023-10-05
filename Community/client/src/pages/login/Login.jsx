@@ -21,9 +21,9 @@ export default function Login() {
     <div className="login">
       <div className="loginWrapper">
         <div className="loginLeft">
-          <h3 className="loginLogo">PegaTrack</h3>
+          <h3 className="loginLogo">Garbhshrushti</h3>
           <span className="loginDesc">
-            Connect with friends and the world around you on PegaTrack.
+            Connect with friends and the world around you on Garbhshrushti.
           </span>
         </div>
         <div className="loginRight">
