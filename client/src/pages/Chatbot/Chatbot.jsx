@@ -84,12 +84,12 @@ function Chatbot() {
 
     return (
         <div className="App">
-            <div style={{ position: "relative", height: "800px", width: "700px" }}>
+            <div style={{ position: "absolute", "background": "white", "border": "2px solid black", "height": "545px", "width": "400px", "bottom": "50px", "right": "14px" }}>
                 <MainContainer>
                     <ChatContainer>
                         <MessageList
                             scrollBehavior="smooth"
-                            typingIndicator={isTyping ? <TypingIndicator content="ChatGPT is typing" /> : null}
+                            typingIndicator={isTyping ? <TypingIndicator content="ChatBot is typing" /> : null}
                         >
                             {messages.map((message, i) => {
                                 return <Message key={i} model={message} />
