@@ -2,14 +2,8 @@ import React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-<<<<<<< HEAD
-import { Link } from "@mui/material";
 import { BsChatLeftTextFill } from "react-icons/bs";
 import { IoMdNotifications } from "react-icons/io";
-=======
-import { BsChatLeftTextFill } from "react-icons/bs"
-import { IoMdNotifications } from "react-icons/io"
->>>>>>> c132bcb2f27697e11e2dd4f2e2ae0fea1c287798
 import { SiShopware } from "react-icons/si";
 import "./Navbar.css";
 import { Link } from 'react-router-dom';

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../DoctorList/DoctorList.css";
 import { FaLocationArrow } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Review from "../../components/Review/Review";
 const doctData1 = [
   {
@@ -17,6 +17,8 @@ const doctData1 = [
     consultationFees: "₹500 /-",
   },
 ];
+
+
 const BookAppt = () => {
   const { doctorId } = useParams();
   console.log(doctorId);
@@ -30,6 +32,8 @@ const BookAppt = () => {
       [name]: value,
     });
   };
+
+  const navigate = useNavigate();
 
   const handleAppointmentBooking = async (event) => {
     event.preventDefault();
@@ -49,7 +53,8 @@ const BookAppt = () => {
     });
     const data = await resp.json();
     console.log(data);
-    
+    navigate('/home');
+
   };
 
   useEffect(() => {
@@ -64,6 +69,7 @@ const BookAppt = () => {
 
       setDoctor(dataArray);
       console.log(doctor);
+      
     }
     getDoctor();
   }, []);
@@ -206,12 +212,14 @@ const BookAppt = () => {
                   </div>
 
                   <div>
-                    <button
-                      className="formbold-btn"
-                      onClick={handleAppointmentBooking}
-                    >
-                      Book Appointment
-                    </button>
+                  
+                      <button
+                        className="formbold-btn"
+                        onClick={handleAppointmentBooking}
+                      >
+                        Book Appointment
+                      </button>
+                   
                   </div>
                 </form>
               </div>
