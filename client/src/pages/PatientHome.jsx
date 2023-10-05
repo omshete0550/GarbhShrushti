@@ -37,33 +37,35 @@ const PatientHome = () => {
         })
         };
         getAppointments();
-    },[])
-  const tasksData = [
+    },[]);
+
+    // Function to handle the removal of a task
+  const handleRemoveTask = (taskId) => {
+    const updatedTasks = tasksData.filter((task) => task.id !== taskId);
+    setTasksData(updatedTasks);
+  };
+  const [tasksData, setTasksData] = useState([
     {
       id: 1,
-      title: "Almonds Intake",
-      description:
-        "Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....",
+      title: 'Almonds Intake',
+      description: 'Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....',
     },
     {
       id: 2,
-      title: "Almonds Intake",
-      description:
-        "Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....",
+      title: 'Exercise Intake',
+      description: 'Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....',
     },
     {
-      id: 1,
-      title: "Almonds Intake",
-      description:
-        "Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....",
+      id: 3,
+      title: 'Sugar Intake',
+      description: 'Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....',
     },
     {
-      id: 2,
-      title: "Almonds Intake",
-      description:
-        "Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....",
+      id: 4,
+      title: 'Protein Intake',
+      description: 'Lorem ipsum dolor sit amet consectetur, Lorem ipsum dolor sit amet. .....',
     },
-  ];
+  ]);
   function handleAppointment() {
     navigate("/speciality");
   }

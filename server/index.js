@@ -129,13 +129,14 @@ console.log(appointments);
   appointments.forEach((appointment) => {
     const timeDifference = appointment.date - currentTime;
     console.log(timeDifference);
+    console.log(appointment.phoneNumber)
     if (timeDifference > 0 && timeDifference <= 30 * 60 * 1000) {
       // Send a reminder 30 minutes before the appointment
       twilioClient.messages
         .create({
           body: 'Your appointment is in 30 minutes. Please be prepared.',
           from: 'whatsapp:+14155238886',
-          to: `whatsapp:${appointment.phoneNumber}`,
+          to: `whatsapp:+91${appointment.phoneNumber}`,
         })
         .then((message) => {
           console.log(`Reminder sent to ${appointment.phoneNumber}`);
@@ -150,6 +151,31 @@ console.log(appointments);
 // Schedule a job to check for reminders every minute (adjust the schedule as needed)
 schedule.scheduleJob('* * * * *', sendAppointmentReminders);
 
+
+// Replace this with the doctor's WhatsApp number
+const doctorWhatsAppNumber = 'whatsapp:+917506453051';
+
+// Endpoint to send an emergency contact message to the doctor
+app.post('/emergency-contact', (req, res) => {
+  console.log(req.body)
+  const { name } = req.body;
+
+  // Send the emergency contact message to the doctor
+  twilioClient.messages
+    .create({
+      body: `Emergency, Kindly Contact the ${name} immediately`,
+      from: 'whatsapp:+14155238886',
+      to: doctorWhatsAppNumber,
+    })
+    .then((message) => {
+      console.log(`Emergency contact message sent to doctor at ${doctorWhatsAppNumber}`);
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.error('Error sending emergency contact message:', error);
+      res.status(500).send('Error sending emergency contact message');
+    });
+});
 
 
 

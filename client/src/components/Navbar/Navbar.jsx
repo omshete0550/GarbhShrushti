@@ -27,6 +27,7 @@ const Navbar = () => {
           <h2>Meternity</h2>
         </div>
         <ul>
+          <li><a to="http://localhost:3001" style={{ textDecoration: 'none', color:"#1977cc" }}>Community</a></li>
           <li><Link to="/home" style={{ textDecoration: 'none' }}>Home</Link></li>
           <li><Link to="/home" style={{ textDecoration: 'none' }}>About</Link></li>
           <li><Link to="/login" style={{ textDecoration: 'none' }}>Login</Link></li>
