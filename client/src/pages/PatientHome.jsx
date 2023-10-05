@@ -7,7 +7,11 @@ import { GiTalk } from "react-icons/gi"
 import { BsBookmarkCheckFill } from "react-icons/bs"
 import "./PatientHome.css";
 import ApptTable from '../components/Navbar/PatientHome/ApptTable'
+import Chatbot from "../pages/Chatbot/Chatbot"
+import { AiFillRobot } from "react-icons/ai"
+
 const PatientHome = () => {
+    const [isActive, setActive] = React.useState(false);
     const tasksData = [
         {
             id: 1,
@@ -26,6 +30,9 @@ const PatientHome = () => {
     }
     return (
         <div>
+            {isActive && <Chatbot />}
+            <div className='chatbot' onClick={(() => setActive(true))}><AiFillRobot /></div>
+            {isActive && <div className='chatbotcross' onClick={(() => setActive(false))}>X</div>}
             <div className="PatientPane">
                 <div className="ag-format-container">
                     <div className="ag-courses_box">
