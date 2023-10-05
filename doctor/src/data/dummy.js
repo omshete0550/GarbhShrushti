@@ -16,6 +16,7 @@ import avatar3 from './avatar3.png';
 import avatar4 from './avatar4.jpg';
 import product1 from './product1.jpg';
 import product2 from './product2.jpg';
+import { Link } from 'react-router-dom';
 import product3 from './product3.jpg';
 import product4 from './product4.jpg';
 import product5 from './product5.jpg';
@@ -420,6 +421,10 @@ function handleAccept(_id){
   });
 }
 
+// function handlePatientClick(id){
+//   navigate(`/SinglePatient/${id}`);
+// }
+
 function handleDelete(_id){
   console.log(_id);
   console.log("this i sdummy")
@@ -476,23 +481,33 @@ export const customersGrid = [
     width: '120',
     textAlign: 'Center',
     isPrimaryKey: true,
+    template: (rowData) => (
+      <Link to={`/SinglePatient/${rowData.patientId}`} >
+      <div
+        onClick={() => handlePatientClick(rowData.patientId)}
+        style={{ cursor: 'pointer' }}
+      >
+        {rowData.patientId}
+      </div>
+      </Link>
+    ),
   },
 
 ];
 
 export const employeesGrid = [
   {
-    field: 'EmployeeID',
+    field: 'patientId',
     headerText: 'Patient ID',
     width: '125',
     textAlign: 'Center'
   },
-  {
-    headerText: 'Patient',
-    width: '150',
-    template: gridEmployeeProfile,
-    textAlign: 'Center'
-  },
+  // {
+  //   headerText: 'Patient',
+  //   width: '150',
+  //   template: gridEmployeeProfile,
+  //   textAlign: 'Center'
+  // },
   {
     field: 'Name',
     headerText: '',
@@ -500,13 +515,13 @@ export const employeesGrid = [
     textAlign: 'Center',
   },
   {
-    field: 'Title',
+    field: 'status',
     headerText: 'Stage',
     width: '170',
     textAlign: 'Center',
   },
   {
-    field: 'HireDate',
+    field: 'date',
     headerText: 'Appointment Date',
     width: '135',
     format: 'yMd',

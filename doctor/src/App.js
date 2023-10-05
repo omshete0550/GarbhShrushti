@@ -74,7 +74,7 @@ const App = () => {
                 <Route path="/employees" element={<Employees />} />
                 <Route path="/customers" element={<Customers />} />
 
-                <Route path="/SinglePatient" element={<SinglePatient />} />
+                <Route path="/SinglePatient/:patientId" element={<SinglePatient />} />
 
                 {/* apps  */}
                 <Route path="/kanban" element={<Kanban />} />

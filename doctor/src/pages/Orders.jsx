@@ -23,6 +23,7 @@ const Orders = () => {
         const acceptedAppointments = data.appointments;
         const finalData = acceptedAppointments.filter(appointment => appointment.status === 'accepted');
         console.log(finalData)
+        
         setData(finalData);
         console.log(data)
       });

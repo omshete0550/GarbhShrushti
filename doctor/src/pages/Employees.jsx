@@ -1,6 +1,5 @@
 import React from 'react';
 import { GridComponent, Inject, ColumnsDirective, ColumnDirective, Search, Page } from '@syncfusion/ej2-react-grids';
-
 import { employeesData, employeesGrid } from '../data/dummy';
 import { Header } from '../components';
 import { useState } from 'react';
@@ -8,7 +7,7 @@ import { useEffect } from 'react';
 
 const Employees = () => {
   const toolbarOptions = ['Search'];
-
+  const [data,setData] = useState([]);
   const editing = { allowDeleting: true, allowEditing: true };
   useEffect(()=>{
     function getAppointments(){
@@ -21,8 +20,12 @@ const Employees = () => {
         body:JSON.stringify({
           username:"shete"
         })
-      }).then((res)=>res.json()).then((data)=>console.log(data));
-      console.log(resp)
+      }).then((res)=>res.json()).then((data)=>{
+        const requestedAppointments = data.appointments;
+        const finalData = requestedAppointments.filter(appointment => appointment.status === 'Completed');
+        setData(finalData)
+        console.log(finalData)
+      });
     }
     getAppointments();
   },[])
@@ -31,7 +34,7 @@ const Employees = () => {
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       <Header category="Page" title="Past Patients" />
       <GridComponent
-        dataSource={employeesData}
+        dataSource={data}
         width="auto"
         allowPaging
         allowSorting
