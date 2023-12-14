@@ -10,14 +10,17 @@ import DoctorList from "./pages/DoctorList/DoctorList";
 import BookAppt from "./pages/bookAppt/bookAppt";
 import Labs from "./pages/Labs/LAbs";
 import LabTests from "./pages/LabTests/LabTests";
-import Nutrient from "./pages/ Nutrient/nutrient";
+import Nutrient from "./pages/Nutrient/Nutrient";
+import Landing from './pages/Landing/Landing'
+import Footer from '../src/components/Footer/Footer'
 
 function App() {
   return (
-    <Router>
-      <>
+    <>
+      <Router>
         <Navbar />
         <Routes>
+          <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/speciality" element={<Speciality />} />
@@ -28,10 +31,11 @@ function App() {
           <Route path="/doctor-list/:variableName" element={<DoctorList />} />
           <Route path="/book-appointment/:doctorId" element={<BookAppt />} />
           <Route path="/chat" element={<Chat />} />
-          <Route path="/nutrient" element={<Nutrient/>}
+          <Route path="/nutrient" element={<Nutrient />} />
         </Routes>
-      </>
-    </Router>
+        <Footer />
+      </Router>
+    </>
   );
 }
 

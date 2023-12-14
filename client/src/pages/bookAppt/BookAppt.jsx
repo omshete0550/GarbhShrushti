@@ -18,7 +18,6 @@ const doctData1 = [
   },
 ];
 
-
 const BookAppt = () => {
   const { doctorId } = useParams();
   console.log(doctorId);
@@ -43,12 +42,12 @@ const BookAppt = () => {
       doctorId: doctorId, // You can use the doctorId from useParams
     };
 
-    const response = await fetch("http://localhost:8800/confirm-appointment",{
-      method:'POST',
-      headers:{
-        'Content-Type':"application/json"
+    const response = await fetch("http://localhost:8800/confirm-appointment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      body:JSON.stringify(updatedApptDetails)
+      body: JSON.stringify(updatedApptDetails),
     });
     const datas = await response.json();
     console.log(datas);
@@ -64,8 +63,7 @@ const BookAppt = () => {
     });
     const data = await resp.json();
     console.log(data);
-    navigate('/home');
-
+    navigate("/home");
   };
 
   useEffect(() => {
@@ -80,81 +78,81 @@ const BookAppt = () => {
 
       setDoctor(dataArray);
       console.log(doctor);
-      
     }
     getDoctor();
   }, []);
 
   return (
     <>
-      <div style={{ display: "flex" }}>
-        <div className="DoctorListContainer">
-          <div style={{ marginTop: "2em" }}>
-            <section className="light">
-              <div className="container py-2">
-                {doctor.map((doct, index) => (
-                  <article className="postcard light blue postcardMain">
-                    <a className="postcard__img_link" href="#">
-                      <img
-                        className="postcard__img"
-                        src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
-                        alt="Image Title"
-                      />
-                    </a>
-                    <div className="postcard__text t-dark">
-                      <span className="typeDoct">{doct.data.speciality}</span>
-                      <h1 className="postcard__title blue">
-                        <a href="#">{doct.data.name}</a>
-                      </h1>
-                      <div className="postcard__subtitle small">
-                        <time datetime="2020-05-25 12:00:00">
-                          <i className="fas fa-calendar-alt mr-2"></i>
-                          {doct.education}
-                          <br />
-                          {doct.data.hospital} | {doct.data.location}
-                        </time>
+      <div style={{ display: 'flex' }}>
+        <div style={{ display: "flex" }}>
+          <div className="DoctorListContainer">
+            <div style={{ marginTop: "2em" }}>
+              <section className="light">
+                <div className="container py-2">
+                  {doctor.map((doct, index) => (
+                    <article className="postcard light blue postcardMain">
+                      <a className="postcard__img_link" href="#">
+                        <img
+                          className="postcard__img"
+                          src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
+                          alt="Image Title"
+                        />
+                      </a>
+                      <div className="postcard__text t-dark">
+                        <span className="typeDoct">{doct.data.speciality}</span>
+                        <h1 className="postcard__title blue">
+                          <a href="#">{doct.data.name}</a>
+                        </h1>
+                        <div className="postcard__subtitle small">
+                          <time datetime="2020-05-25 12:00:00">
+                            <i className="fas fa-calendar-alt mr-2"></i>
+                            {doct.education}
+                            <br />
+                            {doct.data.hospital} | {doct.data.location}
+                          </time>
+                        </div>
+                        {/* <div className="postcard__bar"></div> */}
+                        <div className="doctorStudy">
+                          <i>
+                            <FaLocationArrow />
+                          </i>
+                          <span>{doct.data.email}</span>
+                        </div>
+                        <div className="doctorfees doctorfees1">
+                          <span>Consultation fees</span>
+                          <h2>
+                            <strong>{doct.data.totalExpense}</strong>
+                          </h2>
+                        </div>
                       </div>
-                      {/* <div className="postcard__bar"></div> */}
-                      <div className="doctorStudy">
-                        <i>
-                          <FaLocationArrow />
-                        </i>
-                        <span>{doct.data.email}</span>
-                      </div>
-                      <div className="doctorfees doctorfees1">
-                        <span>Consultation fees</span>
-                        <h2>
-                          <strong>{doct.data.totalExpense}</strong>
-                        </h2>
-                      </div>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </section>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="hi">
-        <div>
-          <div className="formbold-main-wrapper">
-            <div className="formbold-form-wrapper">
-              <form action="https://formbold.com/s/FORM_ID" method="POST">
-                <div className="formbold-mb-5">
-                  <label for="phone" className="formbold-form-label">
-                    {" "}
-                    Phone Number{" "}
-                  </label>
-                  <input
-                    type="number"
-                    name="phone"
-                    id="phone"
-                    placeholder="Enter your phone number"
-                    className="formbold-form-input"
-                    value={appointmentDetails.patientNumber}
-          onChange={handleInputChange}
-                  />
-                </div>
+        <div className="hi">
+          <div>
+            <div className="formbold-main-wrapper">
+              <div className="formbold-form-wrapper">
+                <form action="https://formbold.com/s/FORM_ID" method="POST">
+                  <div className="formbold-mb-5">
+                    <label for="phone" className="formbold-form-label">
+                      {" "}
+                      Phone Number{" "}
+                    </label>
+                    <input
+                      type="number"
+                      name="phone"
+                      id="phone"
+                      placeholder="Enter your phone number"
+                      className="formbold-form-input"
+                      value={appointmentDetails.patientNumber}
+                      onChange={handleInputChange}
+                    />
+                  </div>
 
                   <div className="formbold-mb-5">
                     <label for="description" className="formbold-form-label">
@@ -224,21 +222,19 @@ const BookAppt = () => {
                   </div>
 
                   <div>
-                  
-                      <button
-                        className="formbold-btn"
-                        onClick={handleAppointmentBooking}
-                      >
-                        Book Appointment
-                      </button>
-                   
+                    <button
+                      className="formbold-btn"
+                      onClick={handleAppointmentBooking}
+                    >
+                      Book Appointment
+                    </button>
                   </div>
                 </form>
               </div>
             </div>
           </div>
         </div>
-      {/* </div> */}
+      </div>
       <div className="reviewDoc">
         <Review />
       </div>

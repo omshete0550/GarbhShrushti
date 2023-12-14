@@ -6,7 +6,7 @@ import { BsChatLeftTextFill } from "react-icons/bs";
 import { IoMdNotifications } from "react-icons/io";
 import { SiShopware } from "react-icons/si";
 import "./Navbar.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -28,10 +28,38 @@ const Navbar = () => {
           <h2>GarbhShrushti</h2>
         </div>
         <ul>
-          <li><a to="http://localhost:3001" style={{ textDecoration: 'none', color:"#1977cc" }}>Community</a></li>
-          <li><Link to="/home" style={{ textDecoration: 'none' }}>Home</Link></li>
-          <li><Link to="/home" style={{ textDecoration: 'none' }}>About</Link></li>
-          <li><Link to="/login" style={{ textDecoration: 'none' }}>Login</Link></li>
+          <li>
+            <a
+              to="http://localhost:3001"
+              style={{ textDecoration: "none", color: "#1977cc" }}
+            >
+              Community
+            </a>
+          </li>
+          <li>
+            <Link
+              to="/home"
+              style={{ textDecoration: "none", color: "#1977cc" }}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/home"
+              style={{ textDecoration: "none", color: "#1977cc" }}
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/login"
+              style={{ textDecoration: "none", color: "#1977cc" }}
+            >
+              Login
+            </Link>
+          </li>
           <li>
             <Button
               id="basic-button"
@@ -69,10 +97,10 @@ const Navbar = () => {
               </MenuItem>
             </Menu>
           </li>
-          <li style={{ color: "#1977cc" }} >
+          <li style={{ color: "#1977cc" }}>
             <i>
               {" "}
-              <Link to="/chat">
+              <Link to="/chat" style={{ color: "#1977cc" }}>
                 <BsChatLeftTextFill />
               </Link>
             </i>
