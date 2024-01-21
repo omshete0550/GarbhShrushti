@@ -1,49 +1,22 @@
 .VaccineContainer {
   padding: 20px 80px;
+  margin-bottom: 5em;
 }
 .VaccineContainer h1 {
   font-size: 1.9em;
-  color: #1977cc;
+  color: #09203f;
 }
 .vaccineCen {
   padding-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
-  border-bottom: 2px solid #1977cc;
+  border-bottom: 2px solid #537895;
   position: relative;
   font-size: 1.5em;
   margin-bottom: 1em;
 }
 
-/* @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
-* {
-  margin: 0;
-  font-family: "Open Sans", sans-serif;
-  box-sizing: border-box;
-}
-
-body {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-h1 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-h3 {
-  text-transform: capitalize;
-}
-
-p {
-  line-height: 1.5;
-} */
 
 .Vaccinecards {
   max-width: 100%;
@@ -68,7 +41,7 @@ p {
 }
 .Vaccinecards .card:hover .card-header h3 {
   transition: color 0.3s;
-  color: royalblue;
+  color: #537895;
 }
 .Vaccinecards .card .card-hero img {
   width: 100%;
@@ -97,7 +70,7 @@ p {
     padding: 8px 16px;
     border-radius: 0.4em;
     border: none;
-    background: #1977cc;
+    background: #09203f;
     color: #fff;
 }
 .timeSlotvaccine{

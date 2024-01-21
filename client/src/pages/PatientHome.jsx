@@ -17,6 +17,8 @@ import "./PatientHome.css";
 import ApptTable from "../components/Navbar/PatientHome/ApptTable";
 import Chatbot from "../pages/Chatbot/Chatbot";
 import { AiFillRobot } from "react-icons/ai";
+import Navbar from '../components/Navbar/Navbar'
+import Footer from '../components/Footer/Footer'
 
 const PatientHome = () => {
   const [appointments, setAppointments] = useState([]);
@@ -74,15 +76,16 @@ const PatientHome = () => {
   }
   return (
     <div>
-      {isActive && <Chatbot />}
+      <Navbar />
+      {/* {isActive && <Chatbot />}
       <div className="chatbot" onClick={() => setActive(true)}>
-        <AiFillRobot />
+        <img src="https://png.pngtree.com/png-vector/20220802/ourmid/pngtree-3d-rpa-cute-robot-cartoon-sky-blue-gradients-color-chatbot-png-image_6093532.png" alt="" />
       </div>
       {isActive && (
         <div className="chatbotcross" onClick={() => setActive(false)}>
           X
         </div>
-      )}
+      )} */}
       <div className="PatientPane">
         <div className="ag-format-container">
           <div className="ag-courses_box">
@@ -207,6 +210,8 @@ const PatientHome = () => {
         <h2>Upcoming Appointments</h2>
         <ApptTable data={appointments} />
       </div>
+
+      <Footer />
     </div>
   );
 };

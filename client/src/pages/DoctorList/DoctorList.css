@@ -5,6 +5,9 @@
   width: 100%;
   margin-top: 2em;
 }
+.reviewDoc{
+  margin-bottom: 5em;
+}
 .DoctorListSearch input {
   width: 100%;
   padding: 15px 20px;

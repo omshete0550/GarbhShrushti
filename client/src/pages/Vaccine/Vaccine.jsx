@@ -2,13 +2,18 @@ import React from "react";
 import CustomizedTimeline from "../../components/Timeline/CustomizedTimeline";
 import "./Vaccine.css";
 import { VaccineCenter } from "../../data/data";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 const Vaccine = () => {
   return (
     <>
+      <Navbar />
       <div className="VaccineContainer">
         <h1>National Immunization Chart</h1>
 
-        <div style={{ display: "flex", marginTop: "2em", "column-gap":"4rem" }}>
+        <div
+          style={{ display: "flex", marginTop: "2em", "column-gap": "4rem" }}
+        >
           <div style={{ width: "150%" }}>
             <CustomizedTimeline />
           </div>
@@ -60,6 +65,7 @@ const Vaccine = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

@@ -1,15 +1,16 @@
+
 a {
   text-decoration: none;
   transition: 0.5s;
 }
 em {
   font-style: normal;
-  color: #1977cc;
+  color: #537895;
 }
 .LearnMore{
   margin-top: 1em;
   padding: 12px 30px;
-  background-color: #1977cc;
+  background-color: #537895;
   border: none;
   border-radius: 0.5em;
   color: #fff;
@@ -39,7 +40,7 @@ em {
   box-shadow: 0px 6px 16px -6px rgba(1, 1, 1, 0.5);
 }
 .btn2 {
-  background: #1488e9;
+  background: #09203f;
   color: #fff;
   font-weight: 600;
   border-radius: 5px;
@@ -333,17 +334,20 @@ header {
   background-image: url("https://i.ibb.co/Pmy0dmn/bg.png");
   background-size: cover;
   position: relative;
+  padding: 20px 80px;
 }
 
 .Landingcontainer section {
   position: absolute;
-  top: 15vh;
-  margin: 2rem;
-  width: 40%;
+  top: 25vh;
+  /* margin: 2rem; */
+  width: 50%;
 }
 
 .Landingcontainer section h1 {
   font-size: 3em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
 }
 
 .Landingcontainer section h4 {
@@ -425,12 +429,11 @@ header {
 /*SECTION2*/
 .section2 {
   width: 100%;
-  margin: 5vh auto;
+  padding: 20px 80px;
 }
 
 .section2 .cards {
   margin: auto;
-  width: 90%;
   display: flex;
 }
 
@@ -442,7 +445,7 @@ header {
 
 .section2 .cards .card .fa {
   font-size: 3em;
-  color: #01bcd4;
+  color: #09203f;
   margin-bottom: 0.5em;
 }
 
@@ -461,10 +464,10 @@ header {
     url("https://i.ibb.co/Sft7gKp/bg2.webp");
   background-size: cover;
   position: relative;
-  padding: 3vh 0;
   overflow: hidden;
   padding-bottom: 5em;
   margin-bottom: 5em;
+  padding: 20px 80px;
 }
 
 .section3 .cards {
@@ -496,7 +499,7 @@ header {
 }
 
 .section3 .cards .card section h1 {
-  color: #167ce9;
+  color: #09203f;
 }
 
 .section3 .content {

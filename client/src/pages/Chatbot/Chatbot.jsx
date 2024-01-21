@@ -84,7 +84,7 @@ function Chatbot() {
 
     return (
         <div className="App">
-            <div style={{ position: "absolute", "background": "white", "border": "2px solid black", "height": "545px", "width": "400px", "bottom": "50px", "right": "14px" }}>
+            <div style={{ position: "absolute", "background": "white", "border": "2px solid black", "height": "545px", "width": "400px", "bottom": "50px", "right": "14px", padding: '20px' }}>
                 <MainContainer>
                     <ChatContainer>
                         <MessageList

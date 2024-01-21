@@ -209,11 +209,4 @@ export const VaccineCenter = [
         HospLoc: 'Dahisar, Mumbai',
         HospDesc: 'Description for Silver Lining Medical Center',
     },
-    {
-        id: 13,
-        HospImg: 'https://content.jdmagicbox.com/comp/mumbai/f1/022pxx22.xx22.110517150443.t5f1/catalogue/lifeline-multispeciality-hospital-malad-west-mumbai-hospitals-b3nfp.jpg?clr=',
-        HospName: 'Northside Hospital',
-        HospLoc: 'Goregaon, Mumbai',
-        HospDesc: 'Description for Northside Hospital',
-    },
 ];

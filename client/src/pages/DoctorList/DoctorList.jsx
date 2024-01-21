@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import './DoctorList.css'
-import CustomTabPanel from '../../components/CustomTabPanel/CustomTabPanel'
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import "./DoctorList.css";
+import CustomTabPanel from "../../components/CustomTabPanel/CustomTabPanel";
+import { useParams } from "react-router-dom";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 const DoctorList = () => {
-  const [doctorsData,setDoctorData] = useState([]);
+  const [doctorsData, setDoctorData] = useState([]);
   // const [filteredDoctors,setFilterDoctors] = useState({});
 
   // const { children, value, index, ...other } = props;
   const { variableName } = useParams();
-  async function getDoctors(){
+  async function getDoctors() {
     const resp = await fetch("http://localhost:8800/api/doctors/");
-    const data = await resp.json()
-    setDoctorData(data)
-    if(variableName == 0){
+    const data = await resp.json();
+    setDoctorData(data);
+    if (variableName == 0) {
       // setFilterDoctors(()=>{
       //   doctorData.filter((doctor) => {
       //     // Check if the doctor's specialty is either 'General' or 'OBGY'
@@ -23,30 +25,30 @@ const DoctorList = () => {
       // console.log(filteredDoctors)
     }
   }
-  
-  useEffect(()=>{
-    getDoctors();
-  },[])
-  const filteredDoctors = doctorsData.filter((doctor) => {
-    return doctor.speciality === 'General' || doctor.speciality === 'OBGY';
-  });
-  console.log(filteredDoctors)
 
-  console.log(variableName)
+  useEffect(() => {
+    getDoctors();
+  }, []);
+  const filteredDoctors = doctorsData.filter((doctor) => {
+    return doctor.speciality === "General" || doctor.speciality === "OBGY";
+  });
+  console.log(filteredDoctors);
+
+  console.log(variableName);
   return (
     <>
+      <Navbar />
       <div className="DoctorListContainer">
-
         <div className="DoctorListSearch">
-          <input type="search" name="" id="" placeholder='Search Doctors...' />
+          <input type="search" name="" id="" placeholder="Search Doctors..." />
         </div>
         <div>
-          <CustomTabPanel doctorData={filteredDoctors}/>
+          <CustomTabPanel doctorData={filteredDoctors} />
         </div>
-
       </div>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default DoctorList
+export default DoctorList;

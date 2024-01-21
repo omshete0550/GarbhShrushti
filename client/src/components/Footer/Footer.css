@@ -95,7 +95,7 @@
              FOOTER
 ****************************/
 footer{
-  background-color:var(--primary);
+  background: linear-gradient(to top, #09203f 0%, #537895 100%);
   color:var(--lite);
 }
 

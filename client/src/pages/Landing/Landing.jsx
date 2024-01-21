@@ -1,19 +1,24 @@
 import React from "react";
 import "./Landing.css";
 import { Link } from "react-router-dom";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 const Landing = () => {
   return (
     <>
+      <Navbar />
       <div className="Landingcontainer">
         <section>
-          <em>WELCOME TO NAME_HERE</em>
+          <em>Welcome To GarbhShrushti</em>
           <h1>Take the world's best quality Treatment</h1>
           <h4>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </h4>
-          <Link to="/home"><button className="LearnMore">Learn More</button></Link>
+          <Link to="/home">
+            <button className="LearnMore">Learn More</button>
+          </Link>
         </section>
       </div>
 
@@ -134,12 +139,9 @@ const Landing = () => {
         </div>
         <div className="content">
           <h1>We are well experienced doctors</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
-          </p>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

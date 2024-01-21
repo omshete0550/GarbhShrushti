@@ -3,6 +3,8 @@ import "../DoctorList/DoctorList.css";
 import { FaLocationArrow } from "react-icons/fa";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Review from "../../components/Review/Review";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 const doctData1 = [
   {
     specialty: "General Physician",
@@ -84,6 +86,7 @@ const BookAppt = () => {
 
   return (
     <>
+    <Navbar />
       <div style={{ display: 'flex' }}>
         <div style={{ display: "flex" }}>
           <div className="DoctorListContainer">
@@ -238,6 +241,7 @@ const BookAppt = () => {
       <div className="reviewDoc">
         <Review />
       </div>
+      <Footer />
     </>
   );
 };

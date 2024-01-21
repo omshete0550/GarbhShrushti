@@ -1,8 +1,10 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "./Nutrient.css";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import NutrientTabs from "../../components/NutrientTab/NutrientTabs";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 
 const options = [
   "Type 1 Diabetes (T1D)",
@@ -17,7 +19,7 @@ const Cholesterol = [
   "High-Density Lipoprotein (HDL)",
   "High Total Cholesterol (Hypercholesterolemia)",
   "High Triglycerides (Hypertriglyceridemia)",
-  "Dyslipidemia"
+  "Dyslipidemia",
 ];
 const defaultOption = options[0];
 const blooddefaultOption = bloodP[0];
@@ -36,6 +38,9 @@ const Nutrient = () => {
   };
   return (
     <>
+      <Navbar />
+
+      
       <div className="NutrientCont">
         <div style={{ marginTop: "2em", padding: "20px 40px" }}>
           <h1 style={{ color: "#1977cc", marginBottom: "1em" }}>
@@ -85,7 +90,6 @@ const Nutrient = () => {
                 <Dropdown
                   options={Cholesterol}
                   defaultOption={CholesteroldefaultOption}
-                  
                   placeholder="Select an option"
                 />
               </div>
@@ -94,7 +98,7 @@ const Nutrient = () => {
         </div>
 
         <div className="GptNutrient">
-            <button onClick={displayDiet}>Give Diet Plan</button>
+          <button onClick={displayDiet}>Give Diet Plan</button>
         </div>
 
         {/* <div className="NutrientsTabsCont">
@@ -107,6 +111,7 @@ const Nutrient = () => {
         )}
       </div>
 
+      <Footer />
     </>
   );
 };

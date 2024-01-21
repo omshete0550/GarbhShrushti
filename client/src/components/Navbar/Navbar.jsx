@@ -31,7 +31,7 @@ const Navbar = () => {
           <li>
             <a
               to="http://localhost:3001"
-              style={{ textDecoration: "none", color: "#1977cc" }}
+              style={{ textDecoration: "none", color: "#09203f" }}
             >
               Community
             </a>
@@ -39,7 +39,7 @@ const Navbar = () => {
           <li>
             <Link
               to="/home"
-              style={{ textDecoration: "none", color: "#1977cc" }}
+              style={{ textDecoration: "none", color: "#09203f" }}
             >
               Home
             </Link>
@@ -47,7 +47,7 @@ const Navbar = () => {
           <li>
             <Link
               to="/home"
-              style={{ textDecoration: "none", color: "#1977cc" }}
+              style={{ textDecoration: "none", color: "#09203f" }}
             >
               About
             </Link>
@@ -55,7 +55,7 @@ const Navbar = () => {
           <li>
             <Link
               to="/login"
-              style={{ textDecoration: "none", color: "#1977cc" }}
+              style={{ textDecoration: "none", color: "#09203f" }}
             >
               Login
             </Link>
@@ -85,22 +85,22 @@ const Navbar = () => {
             >
               <MenuItem onClick={handleClose}>
                 Welcome to Stage 2{" "}
-                <p style={{ padding: "0 15px", color: "#acacac" }}>2h</p>
+                <p style={{ padding: "0 15px", }}>2h</p>
               </MenuItem>
               <MenuItem onClick={handleClose}>
                 Time for Exercise{" "}
-                <p style={{ padding: "0 15px", color: "#acacac" }}>4h</p>
+                <p style={{ padding: "0 15px", }}>4h</p>
               </MenuItem>
               <MenuItem onClick={handleClose}>
                 Time for Nurtient Strike{" "}
-                <p style={{ padding: "0 15px", color: "#acacac" }}>2d</p>
+                <p style={{ padding: "0 15px", }}>2d</p>
               </MenuItem>
             </Menu>
           </li>
           <li style={{ color: "#1977cc" }}>
             <i>
               {" "}
-              <Link to="/chat" style={{ color: "#1977cc" }}>
+              <Link to="/chat" style={{ color: "#09203f" }}>
                 <BsChatLeftTextFill />
               </Link>
             </i>
