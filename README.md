@@ -164,6 +164,8 @@ NOTE: Individual instructions can be found in respective directories.
 - `client`: The frontend for the user interface.
 - `doctor`: The frontend for the doctor interface.
 - `server`: The backend for the application.
+- `Community`: The Community section of the application.
+- `Video_Call`: The Video Call section of the application.
 
 <br />
 
@@ -182,7 +184,8 @@ Structure
 src
 ├───assets
 ├───components
-├───Screens
+├───data
+├───pages
 ├───App.jsx
 └───main.jsx
 ```
@@ -249,12 +252,58 @@ For local setup of backend:
 
 ```
 server
-├───middlewares
-├───prisma
+├───controllers
+├───models
 ├───routes
 ├───utils
 ├───index.js
+├───twilio.js
 └───package.json
+```
+
+<br />
+<br />
+
+**Community**
+
+For local setup of Community:
+
+- `cd api`
+- `npm i`
+- `npm start`
+
+- `cd client`
+- `npm i`
+- `npm start`
+
+```
+api
+├───models
+├───routes
+├───index.js
+└───package.json
+```
+
+```
+client
+├───components
+├───context
+├───pages
+└───App.jsx
+```
+
+Individual Component & Screens Structure
+
+```
+component
+├───component.jsx
+└───component.css
+```
+
+```
+Screens
+├───page.jsx
+└───page.css
 ```
 
 <br />
