@@ -115,6 +115,19 @@ The architecture and workflow was built using smartdraw.
 
 ![image](https://github.com/omshete0550/GarbhShrushti/assets/95119784/5c35f9b4-d1e9-4aa8-84c4-0b064548f2d7)
 
+**Doctor Dashboard**
+
+![image](https://github.com/omshete0550/GarbhShrushti/assets/95119784/cd2107cb-f6a2-42cd-90a9-8c4479ae6042)
+
+![image](https://github.com/omshete0550/GarbhShrushti/assets/95119784/2290718e-592f-4c32-9aa6-7fa7107653dc)
+
+![image](https://github.com/omshete0550/GarbhShrushti/assets/95119784/97e95c90-1a4f-47b6-9c5d-1602693a04fe)
+
+![image](https://github.com/omshete0550/GarbhShrushti/assets/95119784/65e2e3e7-fc4b-41a2-a6e5-05a502a9a66f)
+
+![image](https://github.com/omshete0550/GarbhShrushti/assets/95119784/84889b75-57b5-4fc8-9895-8c44f1d1e07e)
+
+
 
 <br />
 <br />
@@ -124,6 +137,7 @@ The architecture and workflow was built using smartdraw.
 - Frontend
   - React.js
   - CSS
+  - tailwindCSS
 - Backend
   - Node.js (Express.js)
   - MongoDB
@@ -147,7 +161,8 @@ NOTE: Individual instructions can be found in respective directories.
 └───Video_Call
 ```
 
-- `client`: The frontend for the application.
+- `client`: The frontend for the user interface.
+- `doctor`: The frontend for the doctor interface.
 - `server`: The backend for the application.
 
 <br />
@@ -184,6 +199,41 @@ component
 Screens
 ├───page.jsx
 └───page.css
+```
+
+<br />
+<br />
+
+**doctor**
+
+For local setup of frontend:
+
+- `cd doctor`
+- `npm i`
+- `npm start`
+- Go to `localhost:3000`
+
+Structure
+
+```
+src
+├───components
+├───context
+├───data
+├───pages
+└───App.jsx
+```
+
+Individual Component & Screens Structure
+
+```
+component
+└───component.jsx
+```
+
+```
+pages
+└───page.jsx
 ```
 
 <br />
