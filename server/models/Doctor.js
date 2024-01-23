@@ -5,9 +5,17 @@ const doctorSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    email:{
+        type:String,
+        required:true
+    },
+    age:{
+        type:Number,
+        required:true
+    },
     password: {
         type: String,
-        required: true,
+        required: true
     },
     name: {
         type: String,
@@ -34,6 +42,13 @@ const doctorSchema = new mongoose.Schema({
             },
         },
     ],
+    speciality: {
+        type: String,
+        enum: ['General', 'Dental', 'Neurology', 'Cardiology', 'Orthopedic', 'Pediatric', 'Oncology','OBGY','ENT','Ophtalm']
+    },
+    number:{
+        type:String,
+    }
 });
 
 export default mongoose.model("Doctors", doctorSchema);

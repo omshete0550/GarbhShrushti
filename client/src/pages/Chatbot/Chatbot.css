@@ -1,0 +1,10 @@
+.chatbotcross{
+    font-size: 2em;
+    position: absolute;
+    top: 4.5em;
+    right: 0.5em;
+    cursor: pointer;
+}
+.chatbotcross img{
+    width: 1em;
+}

@@ -6,14 +6,17 @@ import jwt from "jsonwebtoken";
 
 export const patientRegister = async (req, res, next) => {
     try {
+        console.log("1");
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(req.body.password, salt)
-
+        console.log("2");
         const newPatient = new Patient({
             ...req.body,
             password: hash,
         })
+        console.log("3");
         await newPatient.save()
+        console.log("4");
         res.status(201).json(newPatient);
     } catch (err) {
         next(err)
@@ -40,16 +43,18 @@ export const patientLogin = async (req, res, next) => {
 }
 
 export const doctorRegister = async (req, res, next) => {
+    console.log(req.body)
     try {
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(req.body.password, salt)
-
+        console.log("in try block");
         const newDoctor = new Doctor({
             ...req.body,
             password: hash,
         })
+        console.log(newDoctor);
         await newDoctor.save()
-        res.status(201).send("Doctor has been created")
+        res.status(201).json({message:newDoctor});
     } catch (err) {
         next(err)
     }

@@ -1,5 +1,5 @@
 import express from "express";
-import { deleteAppointment, getAppointment, getAppointments, updateAppointment } from "../controllers/appointment.js";
+import { createAppointment, deleteAppointment, getAppointment, getAppointments, getAppointmentsbyUser, manageAppointments, updateAppointment } from "../controllers/appointment.js";
 const router = express.Router()
 
 //update
@@ -10,5 +10,9 @@ router.delete("/:id", deleteAppointment)
 router.get("/:id", getAppointment)
 //get all
 router.get("/", getAppointments)
+//create appointment
+router.post("/create",createAppointment)
+router.post("/getAppointmentsByUser",getAppointmentsbyUser)
+router.post("/manageAppointments",manageAppointments)
 
 export default router

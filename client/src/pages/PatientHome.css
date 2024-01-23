@@ -1,0 +1,245 @@
+.chatbot {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  font-size: 2rem;
+  z-index: 999999999999999;
+}
+.chatbot img{
+  width: 2em;
+  
+}
+.chatbotcross {
+  position: absolute;
+  top: 18vh;
+  right: 30px;
+  font-size: 1rem;
+  z-index: 99999;
+}
+.PatientPane {
+  display: flex;
+  width: 100%;
+}
+.UpcomingTable {
+  padding: 10px 40px;
+  margin-bottom: 5em;
+}
+.UpcomingTable h2 {
+  padding: 10px;
+  text-transform: uppercase;
+  margin-bottom: 1.5em;
+}
+.tasksPane {
+  padding: 35px 20px;
+  margin: 0 auto;
+}
+.ag-format-container {
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+}
+.tasksPane {
+  width: 30%;
+}
+
+.ag-courses_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  padding: 50px 0;
+}
+.ag-courses_item {
+  -ms-flex-preferred-size: calc(33.33333% - 30px);
+  flex-basis: calc(33.33333% - 30px);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin: 0 15px 30px;
+  height: 15em;
+  overflow: hidden;
+
+  border-radius: 28px;
+}
+.ag-courses-item_link {
+  display: block;
+  padding: 30px 20px;
+  background-color: #fbfbfb;
+  text-decoration: none;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+.ag-courses-item_link:hover,
+.ag-courses-item_link:hover .ag-courses-item_date,
+.ag-courses-item_link:hover .ag-courses-item_title {
+  text-decoration: none;
+  color: #fff;
+}
+.ag-courses-item_link:hover .ag-courses-item_bg {
+  -webkit-transform: scale(10);
+  -ms-transform: scale(10);
+  transform: scale(10);
+}
+.ag-courses-item_title {
+  min-height: 87px;
+  margin: 0 0 25px;
+  overflow: hidden;
+  text-decoration: none !important;
+  font-weight: bold;
+  font-size: 30px;
+  color: #09203f;
+  z-index: 2;
+  position: relative;
+}
+
+.ag-courses-item_date-box {
+  font-size: 18px;
+  color: #fff;
+
+  z-index: 2;
+  position: relative;
+}
+.ag-courses-item_date {
+  font-weight: bold;
+  color: #1977cc;
+
+  -webkit-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+.ag-courses-item_bg {
+  height: 128px;
+  width: 128px;
+  background-color: #537895;
+  z-index: 1;
+  position: absolute;
+  top: -75px;
+  right: -75px;
+
+  border-radius: 50%;
+
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+/* .ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+    background-color: #1977cc;
+    color: #fff;
+  }
+  .ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+    background-color: #1977cc;
+  }
+  .ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+    background-color: #1977cc;
+  }
+  .ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+    background-color: #1977cc;
+  }
+  .ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+    background-color: #1977cc;
+  } */
+
+@media only screen and (max-width: 979px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: calc(50% - 30px);
+    flex-basis: calc(50% - 30px);
+  }
+  .ag-courses-item_title {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .ag-format-container {
+    width: 96%;
+  }
+}
+@media only screen and (max-width: 639px) {
+  .ag-courses_item {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+  }
+  .ag-courses-item_title {
+    min-height: 72px;
+    line-height: 1;
+
+    font-size: 24px;
+  }
+  .ag-courses-item_link {
+    padding: 22px 40px;
+  }
+  .ag-courses-item_date-box {
+    font-size: 16px;
+  }
+}
+
+.listTasks {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+.headingList {
+  display: flex;
+  column-gap: 1rem;
+  justify-content: space-between;
+}
+.tasks ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+  
+}
+.tasks ul li {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+  background-color: #537895;
+  color: #fff;
+  border-radius: 5px;
+}
+.tasks p {
+  text-align: justify;
+  color: #d6d6d6;
+  padding: 5px 15px 0 0;
+}
+.accessbtns {
+  display: flex;
+  column-gap: 1rem;
+  margin-right: 1rem;
+}
+.accessbtns button {
+  margin: 25px 0;
+  padding: 8px 12px;
+  border: none;
+}
+.cross {
+  background-color: #fff;
+  color: red;
+  border-radius: 2px;
+}
+.cross:hover {
+  background-color: red;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.correct {
+  background-color: #fff;
+  color: green;
+  border-radius: 2px;
+}
+.correct:hover {
+  background-color: green;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

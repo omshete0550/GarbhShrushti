@@ -3,8 +3,11 @@ import mongoose from "mongoose";
 const patientSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true,
         unique: true,
+    },
+    email: {
+        type: String,
+        required: true
     },
     password: {
         type: String,
@@ -31,10 +34,17 @@ const patientSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    email: {
+        type: String
+    },
     deliveryDone: {
         type: Boolean,
         default: false,
     },
+    children: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Child",
+    }],
 });
 
 export default mongoose.model("Patients", patientSchema);

@@ -1,0 +1,15 @@
+.btnCancel{
+    padding: 10px 10px;
+    border: none;border-radius: 5px;
+    background-color:rgb(250, 55, 55);
+    color: #fff;
+    letter-spacing: 1px;
+}
+.btnCancel:hover{
+    cursor: pointer;
+    background-color: red;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+th{
+    font-weight: 700;
+}
